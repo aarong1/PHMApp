@@ -1,0 +1,57 @@
+/* styles.css */
+
+
+/* Base setup */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+
+
+.wrapper > p {
+    font-size:25px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+  }
+  
+  .word {
+    position: absolute; /* makes words stack on top of each other */
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* text-transform: uppercase; */
+  }
+  
+  .wisteria {
+    color: #8e44ad;
+  }
+  
+  .belize {
+    color: #2980b9;
+  }
+
+  .pomegranate {
+    color: #ffffff;
+  }
+
+  .letter {
+    display: inline-block;
+    transform-origin: 50% 50% 25px;
+  }
+  
+  
+  .letter.out {
+    transform: rotateX(90deg);
+    transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  
+  
+  .letter.behind {
+    transform: rotateX(-90deg);
+  }
+  
+  
+  .letter.in {
+    transform: rotateX(0deg);
+    transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }

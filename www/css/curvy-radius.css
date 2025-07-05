@@ -1,0 +1,78 @@
+.fancy-border-radius-1 {
+  border-radius: 29% 71% 56% 44% / 43% 67% 33% 57%;
+  width: 230px;
+/*
+width:40%
+height:80%;
+  */
+  height: 130px;
+  background: #f6c102;
+  background: -webkit-linear-gradient(to bottom right,
+      #f6c102,
+      #ffe496);
+  background: linear-gradient(to bottom right,
+      #f6c102,
+      #ffe496);
+      transition: all 1s ease 0s ;
+}
+
+.fancy-border-radius-2 {
+  border-radius: 70% 30% 33% 67% / 27% 66% 34% 73%;
+  width: 250px;
+  height: 200px;
+
+/*
+width:40%
+height:80%;
+  */
+  background: #f793b3;
+  background: -webkit-linear-gradient(to bottom right,
+      #f793b3,
+      #fcbfd1);
+  background: linear-gradient(to bottom right,
+      #f793b3,
+      #fcbfd1);
+      transition: all 1s ease 0s ;
+}
+
+.fancy-border-radius-3 {
+  border-radius: 27% 73% 42% 58% / 71% 74% 26% 29%;
+  height: 130px;
+  width: 200px;
+/*
+width:40%
+height:80%;
+  */
+  background: #76b8cd;
+  background: -webkit-linear-gradient(to bottom right,
+      #76b8cd,
+      #b5def2);
+  background: linear-gradient(to bottom right,
+      #76b8cd,
+      #b5def2);
+      transition: all 1s ease 0s ;
+}
+
+.fancy-border-radius-3:hover, .fancy-border-radius-2:hover, .fancy-border-radius-1:hover{
+  transform:scale(1.2);
+  transition: all 1s ease 0s ;
+}
+
+@media (min-width: 1200px) {
+  .display-2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .display-2 {
+    font-size: 1rem;
+  }
+}
+
+/*
+@media (min-width: 767px) and (max-width: 1199px) {
+  .display-2 {
+    font-size: 1.5rem;
+  }
+} */

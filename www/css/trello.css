@@ -1,0 +1,71 @@
+.board1 {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px;
+            padding-top:0px;
+            gap:1rem;
+            
+        }
+        
+      
+.column1 li { list-style-type: none; margin: 5px; padding: 5px; width: 150px; }
+
+
+.column1{
+          max-height:600px;
+          /*background-color: rgba(87,178,281,0.7); like the simpsons color 
+          background-color:#13b5cb;*/
+          background-color: rgb(40,40,40);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.3);
+            width: 30%;
+            overflow:scroll;
+
+}
+        /*
+        .column1 {
+            overflow-x:scroll;
+            overflow-y:auto;
+            overflow-x:hidden;
+        }
+        */
+        
+        .column1 h2 {
+          margin: 10px 5px 20px 10px;
+            text-align: center;
+            color: white ;
+        }
+        
+        .trello_card_title{
+         font-size:2.5rem; 
+        }
+          
+        }
+        .card1 {
+            /* border: solid rgba(255, 0, 0, 0.8) 3px; */
+         border: solid rgb(36, 179, 201) 3px;
+         color:white;
+
+   border-radius: 20px;
+   
+     -webkit-box-shadow: 7px 10px 1px 1px rgb(36, 179, 201);
+
+    -moz-box-shadow: 7px 16px 0px 1px rgba(255, 0, 0, 0.0.8);
+    box-shadow:  2px 2px 0px 1px rgba(255, 0, 0, 0.0.8);
+          /* background-color: #fff; */
+          
+          background-colur: rgb(40,40,40);
+ 
+  
+            padding: 10px;
+            margin: 20px;
+            box-shadow: 1px 1px 5px rgba(255, 0, 0,.0.8);
+            cursor: grab;
+            z-index:1000;
+        }
+        
+        .card1:hover {
+            background-color: #e0e0e0;
+            color:black;
+        }

@@ -1,0 +1,16 @@
+/*https://www.w3schools.com/howto/howto_css_text_divider.asp*/
+.divider {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  font-family:'Font Awesome 6 Free';
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 2px;
+  background-color: darkgrey;
+  margin: 0px;
+
+}

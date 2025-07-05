@@ -1,0 +1,9 @@
+.card:hover{
+  border: solid 2px rgb(35,35,35);
+  transform: scale(1.1);
+  transition: all 1s ease-in-out;
+}
+
+.card{
+  transition: all 1s ease-in-out;
+}

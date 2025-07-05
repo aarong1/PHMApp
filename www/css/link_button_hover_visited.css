@@ -1,0 +1,29 @@
+
+
+/*https://css-tricks.com/css-basics-styling-links-like-boss/
+*/
+
+a.reference {
+  background-color: red;
+  box-shadow: 0 5px 0 darkgrey;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a.reference {
+  background-color: #ce0606;
+}
+
+a.reference:hover {
+  box-shadow: none;
+  top: 5px;
+}
+
+a.reference:active  {
+  background-color: #ccc;
+}
+
+

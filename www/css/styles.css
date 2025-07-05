@@ -1,0 +1,600 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* https://stackoverflow.com/questions/20300138/is-it-possible-to-add-placeholder-in-div-tag */
+  transform: scale(1.5); /* Increases size by 10% */
+  transform-origin: center; /* Ensures scaling is from the center */
+  transition: transform 0.2s ease; /* Smooth animation */
+
+
+card:hover{
+  
+  transform: scale(1.3); /* Increases size by 10% */
+  transform-origin: center; /* Ensures scaling is from the center */
+  border:solid 2px var(--info);
+  transition: all 0.2s ease; /* Smooth animation */
+  
+}
+
+g[filter] { 
+  filter:none!important;
+}
+
+g[filter]:hover { 
+  transform: scale(1.5); /* Increases size by 10% */
+  transform-origin: center; /* Ensures scaling is from the center */
+  transition: transform 0.2s ease; /* Smooth animation */
+  /* filter:url(#filter9_d_0_447)!important; */ 
+}
+
+html, body, p, a, i, h5,h6,h7 {font-size:x-small}
+
+i { text-decoration: none };
+
+h1,h2,h3,h4 {font-size: small;}
+
+[contentEditable=true]:empty:not(:focus):before {
+  content: attr(data-text)
+}
+
+h*, p{
+  color:rgb(45,45,45);
+}
+html {
+  scroll-behavior:smooth;
+}
+
+#right-head img{
+  fill:blue;
+  color:blue;
+  stroke:white;
+}
+
+hr{
+  margin-top:10px!important;
+  margin-bottom:10px!important;
+}
+
+/*https://copy-paste-css.com/form-input-text*/
+
+/*
+rgb(54,74,120); dark
+rgb(85,172,189); light
+*/
+
+
+::selection {
+  background:rgb(85,172,189);
+  color:white;
+
+}
+
+/* card separation */
+.card.shadow-sm {
+    margin: 20px;
+}
+/* card images */
+img.bd-placeholder-img {
+    padding: 10%;
+}
+
+.greenicon{
+  color:lime!important;
+}
+
+.expand {
+  transform:scale(1);
+  transition: all 1s ease 0s ;
+}
+
+.expand:hover {
+  transform:scale(1.2);
+  transition: all 1s ease 0s ;
+}
+
+/*
+ https://blog.hubspot.com/website/css-loading-animation#:~:text=A%20loading%20animation%20is%20a,accepted%20and%20is%20being%20processed.
+ */
+ 
+
+.loader-container1 {
+  margin-top:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:1001;
+    width:350px;
+}
+
+.progress-bar1 {
+    width: 60%;
+    max-width: 500px;
+    height: 15px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #white;
+    overflow: hidden;
+    z-index:1001;
+    
+}
+
+.progress1 {
+    width: 0;
+    height: 100%;
+    background-color: rgb(122,236,244);
+    animation: fill1 2s ease 3s 1 forwards;
+    z-index:1001;
+}
+
+@keyframes fill1 {
+    0% {
+        width: 0;
+    }
+    90% {
+        width: 100%;
+    }
+    100%{
+      border-width: 1px;
+      border-color:white;
+      width: 100%;
+    }
+    }
+}
+
+
+/* doesnt work for some reason */
+div[data-value='Info Pane'] > div {
+  margin:50%;
+}
+
+div.info_card i{
+  background-color:white;
+  margin:2px;
+  padding:0px;
+  position:relative;
+  top:-30px;
+  right:-30px;
+  border:solid 2px black;
+  color:white;
+  border-radius:15px;
+  
+}
+
+.info_card { 
+   transition: transform 0.3s ease 0s;
+}
+
+.info_card:hover { 
+   transform: scale(1.3);
+   transition: transform 0.6s ease 0s;
+}
+
+/*
+.coming_soon_h1:hover {
+  filter: drop-shadow(10px 10px 50px #646cffaa);
+  }
+  
+.coming_soon_h1{
+   transition: filter 1300ms;
+}
+*/
+
+
+.cost input {
+                    width: 100%;
+                    color: rgb(36, 35, 42);
+                    font-size: 16px;
+                    line-height: 20px;
+                    min-height: 28px;
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    border: 2px solid transparent;
+                    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+                    background: rgb(251, 251, 251);
+                    transition: all 0.1s ease 0s;
+                   
+                
+               
+                }
+                
+.cost input:focus {
+  border: 2px solid rgb(124, 138, 255);
+}
+
+/*
+.indent {
+
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  padding: 3px;
+
+  transition: all 0.3s ease;
+}
+*/
+
+.indent {
+  padding: 3px;
+  transition: all 0.3s ease;
+
+}
+
+.indent:hover {
+  border-radius: 10px;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  
+
+  transition: all 0.3s ease;
+  /*box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+  transform: scale(0.98);*/
+}
+     
+
+.hello{
+  font-weight: bold; /* Makes the text bold */
+    font-size: 40px;   
+    margin-bottom:10px;
+}
+
+
+
+a.landing {
+  color:black;
+  text-decoration:none;
+}
+
+a.landing:hover {
+  font-weight: bold;
+  
+}
+
+
+
+/*https://codepen.io/nxworld/pen/OJVJQme*/
+.neumorphic {
+  width:100%;
+  margin-top: 30px; 
+  text-align: center;
+  padding: 1.5em 5em;
+  background:#5ee875;/* #efefef;*/
+  border: none;
+  border-radius: .5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: .1s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+              -6px -6px 10px rgba(255, 255, 255, .5),
+              6px 6px 8px rgba(255, 255, 255, .075),
+              6px 6px 10px rgba(0, 0, 0, .15);
+}
+
+ 
+
+button.neumorphic:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+              -2px -2px 4px rgba(255, 255, 255, .4),
+              2px 2px 2px rgba(255, 255, 255, .05),
+              2px 2px 4px rgba(0, 0, 0, .1);
+}
+button.neumorphic:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+              inset -2px -2px 4px rgba(255, 255, 255, .5),
+              inset 2px 2px 2px rgba(255, 255, 255, .075),
+              inset 2px 2px 4px rgba(0, 0, 0, .15);
+}
+             
+.carousel-indicators [data-bs-target] {
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: black;
+        z-index:-1;
+      }
+      
+.carousel-indicators .active {
+        background-color: white; /* Active indicator color */
+         z-index:-1;
+      }
+#cost::before{
+  content:'£';
+}
+
+/* fancy button */
+.blur {
+     /*filter: blur(5px);*/
+  #background-color: rgba(255, 255, 255, 0.4);
+  moz-webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+}
+
+/* Container holding the skeletons */
+.skeleton {
+  padding:10px;
+  /*display: flex;
+  flex-direction: column;
+  gap: 16px;
+  */
+  /*width: 200px;*/
+}
+
+/* Base skeleton box style */
+
+.skeleton-title {
+  width: 70px;
+  height: 30px;
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  z-index:4;
+}
+
+.skeleton-row {
+  width: 80%;/*200px;*/
+  height: 15px;
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  z-index:4;
+}
+
+.skeleton-box {
+  width: 70px;
+  height: 70px;
+  background: #e0e0e0;
+  position: relative;
+  /*overflow: hidden;*/
+  border-radius: 4px;
+  z-index:4;
+}
+
+/* Shimmer effect */
+.skeleton-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 3.5s infinite;
+  z-index:4;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.fixed-pane {
+      position: sticky;
+        top:30px;
+       /* bottom: 20px;
+        right: 20px;
+        */
+        width:90%;
+        float:left;
+       /* background-color: #f8f9fa;*/
+        border: 3px solid #ddd;
+        border-radius: 10px;
+        /*box-shadow: -2px 0 5px rgba(0,0,0,0.3);*/
+     
+        /*padding: 20px;*/
+        z-index: 1000;
+  
+}
+
+#sliding-pane {
+        position: relative;
+        bottom: 0;
+        right: -300px;
+        /*width: 300px;*/
+        height: 80%;
+       /* background-color: #f8f9fa;*/
+        border-left: 1px solid #ddd;
+        /*box-shadow: -2px 0 5px rgba(0,0,0,0.3);*/
+        transition: right 0.3s;
+        padding: 20px;
+        z-index: 1000;
+      }
+      
+#sliding-pane.open {
+        right: 0;
+      }
+      
+html, body  {font-size:0.8rem;
+  color:color:rgb(50,50,50);
+}
+p{font-size:80%;}
+div{font-size:0.7rem;
+  
+  
+}
+
+body {
+  background-color: rgba(240, 240, 240, 0.1);; /*rgba(255,255,255,1)*/
+  /* text-align: center; */
+  font-weight: 300;
+  font-family: Montserrat;
+  /*font-family: "Onest", sans-serif; */
+  font-style: light;
+  /*height:100%;
+  overflow:hidden;*/
+  }
+
+h1, p {
+    padding:0px;
+    margin:0px;
+  }
+  
+#shine{
+  padding-top:5px;
+  height:40px;
+}
+
+nav::before{
+  content: '';
+  
+}
+  
+#scatterPlotContainer{
+  padding:10px;
+  margin:10px;
+  border: solid orange 3px;
+  border-radius:10px;
+}
+  
+hr.dropdown{
+  display:none !important ;
+  visibility: hidden !important ;
+}
+
+#nodeSelectnetwork, #nodeSelectnetwork1 {
+  display:none !important ;
+  visibility: hidden !important ;
+}
+
+#maindivnetwork, #maindivnetwork1 {
+  margin:-10px;!important
+  padding:-10px; !important
+  border: solid Black 10px;
+}
+
+  
+#interventions_dest, #populations_dest, #use_case_dest {
+
+  height:100px;
+  /*border:dashed orange 2px;
+  */
+}
+
+
+.flex-center {
+  display:flex;
+  align-items: center;
+  flex-direction:column;
+  margin:auto;
+}
+
+
+a {
+  /* color:rgb(85,172,189);
+  text-decoration:none;
+  */
+  color: rgb(85,172,189) ;
+
+}
+
+
+.collapsing{
+  transition: all 1s ease-in !important;
+}
+
+.collapse{
+  transition: all 2s ease-in !important;
+}
+
+
+ul {
+   list-style-type: none; 
+   text-decoration: none!important;
+}
+
+ .nav.nav-underline {
+   position: sticky;
+   top: 5px;
+   background-color:white;
+   z-index:1048;
+ }
+ 
+ .nav.nav-pills {
+   position: sticky;
+   top: 5px;
+   background-color:white;
+   z-index:1048;
+ }
+ 
+
+#nav_id.nav{
+  background-color:rgba(255,255,255, 0.7);
+  moz-webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  /*
+  */
+  color:white;
+  border-radius:0px;
+}
+
+/*
+.nav>li>a {
+  color:black;
+
+}
+*/
+
+.nav>li>a:hover {
+    text-decoration: none;
+    /* text-shadow: 1px 1px 35px rgb(85,172,189) ; 
+    background-color: black;
+    */
+    background-color:rgb(40,40,40);
+    color:white !important;
+    /* filter: dropshadow(color=rgb(99,115,150);, offx=5, offy=5); */
+}
+
+a.active {
+    text-decoration: none;
+    /* text-shadow: 1px 1px 35px rgb(85,172,189) ; 
+    background-color: black;
+    */
+    background-color:rgb(35,35,35) !important;
+   /* rgb(85,172,189)!important;*/
+    color:white !important;
+    /* filter: dropshadow(color=rgb(99,115,150);, offx=5, offy=5); */
+}
+
+.nav {
+  display: flex !important;
+  /*flex-direction:column!important;*/
+  gap:1px!important;
+  position:sticky;
+  /*
+  font-weight: bold; 
+  color:rgb(85,172,189) !important;
+  */
+  font-size: 90%;
+  justify-content: start !important;
+  margin-top:0px;
+  /*padding-left: 200px !important;
+  padding-right: 200px !important;*/
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  
+}
+
+.tab-panel > div {
+  width: 100%;
+}
+
+/*
+
+https://codepen.io/maoberlehner/pen/bQGZYB

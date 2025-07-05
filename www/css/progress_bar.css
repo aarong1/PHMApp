@@ -1,0 +1,38 @@
+
+/*
+ https://blog.hubspot.com/website/css-loading-animation#:~:text=A%20loading%20animation%20is%20a,accepted%20and%20is%20being%20processed.
+ */
+ 
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.progress-bar {
+    width: 80%;
+    max-width: 400px;
+    height: 20px;
+    /*background-color: #e0e0e0; */
+    background-color: rgb(122,236,244);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: rgb(122,236,244);
+    animation: fill 4s infinite;
+}
+
+@keyframes fill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+

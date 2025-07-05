@@ -1,0 +1,41 @@
+/*https://www.w3schools.com/howto/howto_css_profile_card.asp*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.card span {
+  padding: 20px 0px!important;
+}
+
+
+.card .title {
+  color: grey;
+  font-size: 18px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+#proile a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.card button:hover, .card a:hover {
+  opacity: 0.7;
+}

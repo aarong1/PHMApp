@@ -1,0 +1,31 @@
+
+
+.echarts_holder>div:hover {
+    /* border-radius: 10px; */
+    box-shadow: 4px 4px 10px #bebebe, -4px -4px 10px #ffffff;
+    transform:scale(1.2);
+    z-index:1000;
+    /*padding: 10px !important;
+    margin-left: 10px; */
+    transition: all 0.5s ease;
+}
+
+.echarts_holder>div{
+  /*background-color: rgb(200,200,200);*/
+  border-radius:15px;
+      transition: all 0.5s ease;
+}
+
+.echarts_holder{
+  display:flex;
+  align-content:center; 
+  justify-content:center; 
+  flex-wrap:wrap; 
+  row-gap:40px; 
+  gap:40px;
+  /*margin-block:50px; */ 
+}
+
+.bg-charcoal {
+  background-color: rgb(40,40,40);
+}
