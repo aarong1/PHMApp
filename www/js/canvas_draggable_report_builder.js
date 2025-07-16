@@ -1,48 +1,55 @@
-$(document).ready(function() {
-  // Function to set draggable attribute on all canvas elements
+$(document).ready(function () {
   function makeCanvasDraggable() {
     $("canvas").attr("draggable", true);
     $("table").attr("draggable", true);
+  }
 
-  };
+  function undoCanvasDraggable() {
+    $("canvas").attr("draggable", false);
+    $("table").attr("draggable", false);
+  }
 
-  // Initial call to make canvases draggable
-  makeCanvasDraggable();
-  
-  console.log("draggable fn called");
-
-  // Listen for Bootstrap tab change event
-  $("a[data-toggle=tab]").on("shown.bs.tab", function() {
-    makeCanvasDraggable();
-    
-    // Function to setup each canvas
-    function setupCanvas(canvas) {
-        // Add dragstart event
-        canvas.addEventListener("dragstart", function(event){
-            const dataUrl = canvas.toDataURL("image/png");
-            event.dataTransfer.setData("text/plain", dataUrl);
-            console.log(event.dataTransfer.getData("text/plain"));
-        });
+  function setupCanvas(canvas) {
+    if (!canvas.dataset.dragSetup) {
+      canvas.addEventListener("dragstart", function (event) {
+        const dataUrl = canvas.toDataURL("image/png");
+        event.dataTransfer.setData("text/plain", dataUrl);
+        console.log("called setupCanvas");
+      });
+      canvas.dataset.dragSetup = "true"; // flag to avoid duplicate listeners
     }
+  }
 
-    // Get all canvas elements and setup them
+  // Only add this ONCE
+  const editor = document.getElementById("editor");
+
+  if (editor) {
+    editor.addEventListener("dragover", function (event) {
+      event.preventDefault();
+    });
+
+    editor.addEventListener("drop", function (event) {
+      event.preventDefault();
+      const dataUrl = event.dataTransfer.getData("text/plain");
+      const range = quill.getSelection();
+      if (range) {
+        quill.insertEmbed(range.index, "image", dataUrl);
+      }
+    });
+  }
+
+  // Bind toggle_open ONCE
+  $("#toggle_open").on("click", function () {
+    makeCanvasDraggable();
+
     const canvases = document.getElementsByTagName("canvas");
     Array.from(canvases).forEach(setupCanvas);
-
-    // Add dragover event to allow dropping
-    document.getElementById("editor").addEventListener("dragover", function(event){
-        event.preventDefault();
-    });
-
-    // Add drop event to insert image into Quill
-    document.getElementById("editor").addEventListener("drop", function(event){
-        event.preventDefault();
-        const dataUrl = event.dataTransfer.getData("text/plain");
-        console.log(dataUrl);
-        const range = quill.getSelection();
-        quill.insertEmbed(range.index, 
-        "image", dataUrl);
-    });
-    
   });
+
+  // Bind toggle_close ONCE
+  $("#toggle_close").on("click", function () {
+    undoCanvasDraggable();
+  });
+
+  console.log("draggable fn called");
 });

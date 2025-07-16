@@ -89,14 +89,14 @@ ui <- div(
     #   });
     # ")),
     
-    tags$script(HTML("
-     document.addEventListener('DOMContentLoaded', function () {
-  setTimeout(function () {
-    var banner = document.getElementById('close_banner_btn');
-    if (banner) banner.click(); // Optional: check if the button exists
-  }, 20000); // 3000 milliseconds = 3 seconds
-      });
-    ")),
+  #   tags$script(HTML("
+  #    document.addEventListener('DOMContentLoaded', function () {
+  # setTimeout(function () {
+  #   var banner = document.getElementById('close_banner_btn');
+  #   if (banner) banner.click(); // Optional: check if the button exists
+  # }, 20000); // 3000 milliseconds = 3 seconds
+  #     });
+  #   ")),
     
     tags$style(HTML("
     
@@ -134,14 +134,17 @@ ui <- div(
     class = "alert alert-dismissible fade show top-banner bg-gradient-cyan-blue border-0",# bg-gradient-blue-teal text-center 
     role = "alert",
     div(tags$a(
-      href = "https://example.com", target = "_blank", class = "fs-5 text-decoration-none text-white", #text-white 
+      href = "#",
+      onclick = 'window.change_tab("baseline_results");',
+      target = "_blank", class = "fs-5 text-decoration-none text-white", #text-white 
       "New Updated baseline for SPPG produced for 9 morbidities"
     ),
     
     tags$a(
       href = "https://example.com", target = "_blank", class = "fs-6 text-decoration-underline text-white", #text-white 
       "Learn More"
-    )),
+    )
+  ),
     
     tags$div(
       id = 'close_banner_btn', type = "button", class = "", `data-bs-dismiss` = "alert", `aria-label` = "Close",
@@ -154,6 +157,7 @@ ui <- div(
   page_fluid(
     theme = bs_theme(
       primary = 'rgb(45,45,45)',
+      success  = 'rgb(144, 238, 144)',
       version = 5),
     
     HTML('<script>
@@ -345,7 +349,7 @@ ui <- div(
       includeScript(path = './www/js/carousel.js'),
       includeScript(path = './www/js/update_nav.js'),
       includeScript(path = './www/js/event_handlers.js'),
-      includeScript(path = './www/js/manipulate_clipboard.js'),
+      #includeScript(path = './www/js/manipulate_clipboard.js'),
       # tags$head(tags$script(src="js/event_handlers.js")),
       
       # for if getting an error message in javascript about .forEach not being a function....see the below......
@@ -458,9 +462,10 @@ ui <- div(
   ")),
     
     tags$head(
-      tags$script(src = "js/make_canvas_elements_draggable.js"),
+      #tags$script(src = "js/make_canvas_elements_draggable.js"),
       tags$script(src = "js/app.js"),
       tags$script(src = "js/clipboard.js"),
+      tags$script(src = "js/save_quill_contents.js"),
       
       HTML('<script src="
 https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.min.js
@@ -1209,7 +1214,22 @@ color:gold;
                                     
                                     ##trello ====
                                     #div(id = 'progress' , class='divider m-5','Progress'),
+                                     
+                                        div(
+                                          style = 'display: flex !important;
+      align-content: center;
+      justify-content: center;
+      width:100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;',
+                                          hatched_subtitle('Progress'),
+                                          icon('bars-progress', class =
+                                                 'fs-1')
+                                        ),       
+                                    
                                     div(id='progress',
+                                      
                                         
                                         HTML("  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/jkanban@1.2.0/dist/jkanban.min.css' />
   <style>
@@ -1256,52 +1276,74 @@ color:gold;
 </script>
 
 <script>
-  var KanbanTest = new jKanban({
-    element: //'#myKanban',
-    gutter: '15px',
-    widthBoard: '280px',
-    boards: [
-      {
-        id: '_todo',
-        title: 'To Do',
-        class: 'custom-board',
-        item: [
-          { title: 'Task 1' }
-          { title: 'Task 2' }
-        ]
-      },
-      {
-        id: '_inprogress',
-        title: 'In Progress',
-        class: 'custom-board',
-        item: [
-          { title: 'Task 3' }
-        ]
-      },
-      {
-        id: '_done',
-        title: 'Done',
-        class: 'custom-board',
-        item: [
-          { title: 'Task 4' }
-        ]
-      }
-    ]
-  });
+// First, make sure a container exists in the DOM
+let board = document.createElement('div');
+board.id = 'myKanban';
+document.body.appendChild(board);
+
+// Now initialize the Kanban board
+var KanbanTest = new jKanban({
+  element: '#myKanban', // this was commented out
+  gutter: '15px',
+  widthBoard: '280px',
+  boards: [
+    {
+      id: '_todo',
+      title: 'To Do',
+      class: 'custom-board',
+      item: [
+        { title: 'Model Site specific cancers' },
+        { title: 'Lung cancer screening' },
+        { title: 'Bowel cancer screening' },
+        { title: 'Cervical cancer screening' },
+        { title: 'Neurogenerative Diseases' },
+        { title: 'Health Inequality' }
+
+
+
+      ]
+    },
+    {
+      id: '_inprogress',
+      title: 'In Progress',
+      class: 'custom-board',
+      item: [
+        { title: 'Obesity' },
+        { title: 'Hypertension' },
+        { title: 'Cholesterol' },
+        { title: 'Statins Interventions' },
+        { title: 'Other Neurodegenerative Disease, Parkinsons/Alzheimers' },
+        { title: 'Asthma, Parkinsons/Alzheimers' },
+        { title: 'COPD Neurodengenerative Disease, Parkinsons/Alzheimers' },
+        { title: 'Epilepsy, Parkinsons/Alzheimers' },
+        { title: 'Disaggregating Ty1 and Ty2 diabetes better' },
+        { title: 'Better pathway for pre-diabetes to diabetes progression' }
+
+
+      ]
+    },
+    {
+      id: '_done',
+      title: 'Done',
+      class: 'custom-board',
+      item: [
+        { title: 'Cardiovascular Disease' },
+        { title: 'Dementia' },
+        { title: 'Other Neurodengenerative Disease' },
+        { title: 'Kidney disease' },
+        { title: 'Atrial Fibrillation on Stroke scenario' },
+        { title: 'SPPG results for projected baseline prevalence' },
+        { title: 'Conservative Projection of three state population BMI' }
+
+
+
+      ]
+    }
+  ]
+});
 </script>")),
-                                    
-                                    
-                                    div(
-                                      style = 'display: flex !important;
-      align-content: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;',
-                                      hatched_subtitle('Progress'),
-                                      icon('bars-progress',
-                                           class='fs-1')
-                                    ),
+
+  
                                     tags$head(
                                       # resize all font to smaller font
                                       #tags$link(rel = "stylesheet", type = "text/css", href = "custom.css"),
@@ -1363,7 +1405,7 @@ color:gold;
                                       
                                       ###css -----
                                       HTML('<link rel = "stylesheet"  type = "text/css" href = "css/trello.css"/>') ) ,
-                                    trello()
+                                    #trello()
                                     
                                     
                                     
@@ -1383,23 +1425,34 @@ color:gold;
                                     class = 'fade m-5',
                                     #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
                                     
-                                    button_block( border='rgb(35,35,35)',
-                                                  
-                                                  HTML('<ul class = "navbar bg-light rounded-3 gap-2 flex-column text-decoration-none fw-semibold ml-5">
-      <li><a style= "font-size: small;" href="#model"> Model </a></li>
-      <li><a style= "font-size: small;" href="#project">Project </a></li>
-    </ul>'),
-                                                  
-                                                  # tags$button(class = 'btn btn-outline-dark btn-pill','Reference',),
-                                                  # tags$button(class = 'btn btn-outline-dark btn-pill','Reference',),
-                                                  # tags$button(class = 'btn btn-outline-dark btn-pill','Reference',)
-                                                  
-                                                  button_box_shadow(color='#13b5cb',border='#13b5cb','Reference',   onclick = "window.open('https://pophealthmetrics.biomedcentral.com/articles/10.1186/s12963-015-0057-x/figures/1','_blank').focus();"),
-                                                  #button_box_shadow(color='#13b5cb',border='#13b5cb','Download png'),
-                                                  button_box_shadow(color='#13b5cb',border='#13b5cb','Go to Resources', onclick = "change_tab('resources')"),
-                                                  button_box_shadow(color='#13b5cb',border='#13b5cb','Go to model', onclick = "change_tab('model-home')")
-                                    ),
-                                    
+                                                       HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Outline</li>
+  </ol>
+'),
+                                    #button_block( border='rgb(35,35,35)',
+                                                  div( style = 'display: flex !important;
+                                                    
+                                                     justify-content: space-between;
+                                                       align-items: center;' ,
+      HTML('<ul class = "navbar bg-light rounded-3 gap-2 flex-column text-decoration-none fw-semibold ml-5">
+      <li><a style= "font-size: x-small;" href="#model"> Model </a></li>
+      <li><a style= "font-size: x-small;" href="#project">Project </a></li>
+    </ul>'), 
+                                                  div(class = 'd-flex gap-5',
+                                                   tags$button(class = 'btn btn-outline-info rounded-pill','Project Schematic Reference', icon('up-right-from-square'), onclick = "window.open('https://pophealthmetrics.biomedcentral.com/articles/10.1186/s12963-015-0057-x/figures/1','_blank').focus();"),
+                                                   tags$button(class = 'btn btn-outline-dark rounded-pill',icon('bars'),'Resources', onclick = "change_tab('resources')"),
+                                                   tags$button(class = 'btn btn-outline-dark rounded-pill',icon('bars'), 'Model', onclick = "change_tab('model-home')")
+                                                  ),
+                                                  # button_box_shadow(color='#13b5cb',border='#13b5cb','Reference',   onclick = "window.open('https://pophealthmetrics.biomedcentral.com/articles/10.1186/s12963-015-0057-x/figures/1','_blank').focus();"),
+                                                  # #button_box_shadow(color='#13b5cb',border='#13b5cb','Download png'),
+                                                  # button_box_shadow(color='#13b5cb',border='#13b5cb','Go to Resources', onclick = "change_tab('resources')"),
+                                                  # button_box_shadow(color='#13b5cb',border='#13b5cb','Go to model', onclick = "change_tab('model-home')")
+                                    #),
+      
+                                                  div(),
+                                                  ),
                                     
                                     HTML('<script src="https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.js"></script>
     <!-- AtroposJS JS -->
@@ -1444,7 +1497,7 @@ const myAtropos2 = Atropos({
           <img class="atrophos" src="img/atrophos/small_arrows_demographics.png" data-atropos-offset="4" />
           <img class="atrophos" src="img/atrophos/risk_factors.png" data-atropos-offset="6" />
 
-      <div class="atropos-inner bg-info-subtle bg-opacity-75 rounded-5">
+      <div class="atropos-inner border-info-subtle bg-opacity-75 rounded-5"> 
 
     </div>
   </div>
@@ -2155,10 +2208,10 @@ const myAtropos2 = Atropos({
                                     HTML('<h4 class="bg-charcoal text-light rounded-3 m-2 p-2"> Taxonomy, and Cause and effect </h4>'),
                                     
                                     
-                                    #flex align ----
+                                    #flex align
                                     div( class='d-flex align-items-baseline justify-content-center my-3 gap-5 flex-row',
                                          
-                                         #flex centre ----
+                                         #flex centre
                                          
                                          div( class='d-flex flex-column align-items-baseline justify-content-center my-3 gap-5',
                                               
@@ -2442,10 +2495,9 @@ const myAtropos2 = Atropos({
                                                                      # e_arrange(x1, mdm_rank_tds, x2, cols = 3)
                                                                      #  ),
                                                                      
-                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','NI, 1'), x1),
-                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','NI, 2'), mdm_rank_tds),
-                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','NI, 3'), x2),
-                                                                     
+                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','Demographics'), x1),
+                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','Demographics'), mdm_rank_tds),
+                                                                     div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','Demographics'), x2),
                                                                      
                                                                      div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','NI, Age Distribution'), age_pop_echarts),
                                                                      div(h4(class = 'bg-charcoal text-light rounded-3 m-2 p-2','NI, Gender Distribution'), gender_pop_echarts)
@@ -2606,13 +2658,20 @@ const myAtropos2 = Atropos({
                           nav_panel(icon=icon('play'),
                                     title= 'Scenarios',
                                     value='Planned',class = 'fade',
-                                    HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+                                    HTML('  <ol class = "breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
     <li class="fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
     <li class="breadcrumb-item" ><a href="#" onclick = window.change_tab("Landing");>Home</a></li>
     <li class="breadcrumb-item"><a href="#" onclick = window.change_tab("model-home");>Model</a></li>
     <li class="breadcrumb-item active">Headline Scenarios</li>
   </ol>
 '),
+                                    tags$head(
+                                      tags$style(
+                                        '#populations > div {
+                                            background-color:lightgreen !important;
+                                        }'
+                                      )),
+                                        
                                     #div(class='divider', 'Scenarios'),
                                     # div(style="display:flex; align-items: center;",
                                     #     #h1('1'),#,style="padding:0 10% 0 10%;"),
@@ -2699,8 +2758,14 @@ const myAtropos2 = Atropos({
                                                     div(style='height:30px'),
                                                     
                                                     #populations
-                                                    orderInput('populations', 'Populations', items = c('NI'), item_class='success',
-                                                               as_source = TRUE, connect = 'populations_dest'),
+                                                    
+                                                    orderInput('populations', 
+                                                               'Populations',
+                                                               items = c('NI'), 
+                                                               item_class='success',
+                                                               as_source = TRUE, 
+                                                               connect = 'populations_dest'),
+
                                                     
                                                     div(style='height:60px'),
                                                     
@@ -2725,52 +2790,64 @@ const myAtropos2 = Atropos({
                                         
                                         HTML('<link  rel="stylesheet" href = css/changing_words.css />'),
                                         
-                                        changing_words(),
                                         
-                                        sm_hatched_subtitle(' Assumptions'),
                                         
-                                        div(style = 'display:flex;flex-direction:row;justify-content:baseline;flex-wrap:wrap;',
-                                            declare_box('Discounting Rate', '3.5 %',background = 'transparent',color='rgb(40,40,40)'),
-                                            declare_box('post stroke utility', 0.5,background = 'transparent',color='rgb(40,40,40)'),
-                                            declare_box('Screening cost', '£5',background = 'transparent',color='rgb(40,40,40)'),
-                                            declare_box('Prescription Costs','£ 80','per person per year',background = 'transparent',color='rgb(40,40,40)'),
-                                            
-                                            declare_box('Cost of a Stroke','£ 48,000','first year',background = 'transparent',color='rgb(40,40,40)'),
-                                            declare_box('£ 24,000', '', second ='Subsequently',background = 'transparent',color='rgb(40,40,40)'),
-                                            
-                                            declare_box('Average normal LE of Stroke victims',background='rgb(85,172,189)', '8 years'),
-                                            declare_box('Average LE wo Stroke', '20 years',background='rgb(85,172,189)',second='model')
-                                            
-                                        ), 
                                         
-                                        div(style='width:350px;float:right !important;',
-                                            sm_hatched_subtitle('Costs of AF Intervention'),
+                                        
+                                        div(style='width:350px;',
+                                            # div(
+                                            #   sm_hatched_subtitle('Costs of AF Intervention')
+                                            # ),
                                             
                                             div(class = "fixed-pane",
                                                 style='width:300px;padding:20px;background-color:rgb(50,104,126);
            color:white !important;border-color:white !important;',
                                                 
                                                 cost_component(),
-                                                div(style = 'height:250px;width:250px;margin-block:100px;color:inherit !imporant;',
+                                                div(style = 'height:250px;width:250px;margin-block:10px;color:inherit !imporant;',
                                                     circular_value('10,212')
                                                 )
                                             )
                                         ),
+                                        # div( class = 'mx-5',
+                                        #   sm_hatched_subtitle(' Assumptions')
+                                        # ),
+                                        div(style = 'display:flex;flex-direction:row;justify-content:center;flex-wrap:wrap;',
+                                            declare_box('Discounting Rate', '3.5 %',background = 'transparent',color='rgb(40,40,40)'),
+                                            declare_box('Post Stroke Utility', 0.5,background = 'transparent',color='rgb(40,40,40)'),
+                                            declare_box('Screening cost', '£5',background = 'transparent',color='rgb(40,40,40)'),
+                                            declare_box('Prescription Costs','£ 80','per person per year',background = 'transparent',color='rgb(40,40,40)'),
+
+                                            declare_box('Cost of a Stroke','£ 48,000','First Year',background = 'transparent',color='rgb(40,40,40)'),
+                                            declare_box('Cost of a Stroke','£ 24,000', 'Subsequent Cost',  background = 'transparent',color='rgb(40,40,40)'),
+
+                                            #declare_box('Average normal LE of Stroke victims',background='rgb(85,172,189)', '8 years'),
+                                            #declare_box('Average LE wo Stroke', '20 years',background='rgb(85,172,189)',second='model')
+                                            
+                                            declare_box('LE after Stroke',background='transparent', '8 years',color='rgb(40,40,40)'),
+                                            declare_box('Avg. LE w/o Stroke', '20 years',background='transparent',color='rgb(40,40,40)')
+                                        ), 
+                                        
                                         
                                         div(style = ' display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap:1rem;
   justify-content: center; /* Horizontally centres the image*/
   align-items: center; /* Vertically centres the image*/', 
                                             #img(src = 'img/AF_epi_plot.png',height='535px'),
-                                            div(style = 'width:500px;',
+                                            div(style = 'width:300px;',
                                                 sm_hatched_subtitle('Plot of Stroke Instances subject to AF'),
                                                 af_stroke_output_agg_plot
                                             ),
-                                            div(style = 'width:500px;',
+                                            div(style = 'width:300px;',
                                                 sm_hatched_subtitle('Delta in Stroke Instances subject to AF'),
-                                                af_stroke_ouput_delta
+                                                af_stroke_output_delta
                                             )
                                             
+                                        ),
+                                        
+                                        div(style = 'float:right;margin-top:40px;',
+                                            changing_words()
                                         ),
                                         
                                         #   h4('Target attributes of the Intervention and their time prevalence in the population'),
@@ -2802,11 +2879,31 @@ const myAtropos2 = Atropos({
                                     )
                           ),
                           
+                          
+                          nav_panel(title = HTML( '<b style="font-weight: bold;
+                          font-size: x-small;">DoH</b> 
+                                                  Baseline '),
+                                    value = 'baseline_results',
+                                    #div(class='divider','Overview'),
+                                    class = 'fade m-3',
+                                    #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+                                    
+                                    HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Baseline Results</li>
+  </ol>
+')
+                                    
+                                    
+                                    
+                                    ),
+                                    
                           #  Interactive Scenarios Page----
                           
                           nav_panel(icon=icon('sliders'),
-                                    value = "Interactive", 
-                                    title='interactive',
+                                    title='Interactive',
+                                    value = "interactive", 
                                     class = 'fade',
                                     
                                     HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
@@ -3045,7 +3142,7 @@ const myAtropos2 = Atropos({
                           #             border-radius: 5px;
                           #             background-color: #f9f9f9;
                           #         }
-                          
+
                           #         #editor h1,#editor h2,#editor h3 {
                           #             color: #333;
                           #         }

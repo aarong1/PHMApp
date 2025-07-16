@@ -5,11 +5,11 @@ animate_text <- function( ){
   div(class="wrapper",
       
       
-        p('<!-- blank characters 
+        HTML('<!-- blank characters 
              https://www.quora.com/How-do-you-insert-an-invisible-character-in-HTML -->',
-          span(class="word wisteria", 'Population&nbsp;Health&nbsp;Model'),
-          span(class="word belize", 'Atrial&nbsp;Fibrillation&nbsp;Use&nbsp;Case'),
-          span(class="word pomegranate", 'Economic&nbsp;Analysis')
+          span(class="word wisteria", 'Population&nbsp; Health&nbsp; Model'),
+          span(class="word belize", 'Atrial&nbsp; Fibrillation&nbsp; Use&nbsp; Case'),
+          span(class="word pomegranate", 'Economic&nbsp; Analysis')
         ),
   tags$head(tags$script("
   // app.js
@@ -156,13 +156,13 @@ ui <- div(animate_text())
 server <- function(input,ouput){}
 shinyApp(ui = ui, server = server)
 
+ #'<!-- blank characters  :https://www.quora.com/How-do-you-insert-an-invisible-character-in-HTML -->',
 changing_words <- function(){
   div(
    div(class="wrapper",
-# <!-- blank characters  :https://www.quora.com/How-do-you-insert-an-invisible-character-in-HTML -->'
         p(
-          span(class="word wisteria", 'PopulationHealthModel'),
-          span(class="word belize", 'AtrialFibrillationUseCase'),
+          span(class="word wisteria", 'Population Health Model'),
+          span(class="word belize", 'Atrial Fibrillation Use Case'),
           span(class="word pomegranate", 'EconomicAnalysis')
         )
       )

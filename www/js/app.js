@@ -16,6 +16,22 @@
   // Store the editor instance globally for later use
   window.quill = quill;
   console.log('window.quill' + window.quill);
+  
+
+
+
+if (localStorage.getItem("delta") === null) {
+  console.log('no local storage found');
+  
+} else {
+    console.log(' local storage under name delta - found! ');
+
+const blob = localStorage.getItem("delta");;
+const delta = JSON.parse(localStorage.getItem('delta'));
+const content = quill.setContents(delta);
+}
+
+
 
 //Shiny.addCustomMessageHandler('downloadHTML', function(message) {
 //  

@@ -50,7 +50,7 @@ window.setupCanvas = setupCanvas;
     document.getElementById("editor").addEventListener("drop", function(event){
         event.preventDefault();
         const dataUrl = event.dataTransfer.getData("text/plain");
-        console.log(dataUrl);
+       // console.log(dataUrl);
         const range = quill.getSelection();
         quill.insertEmbed(45, //range.index, 
         "image", dataUrl);

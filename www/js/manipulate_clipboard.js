@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log('Clipboard manipulation funtion calledd');
+    console.log('Clipboard manipulation function called');
 
 
 

@@ -43,9 +43,11 @@ window.quill = quill;
 
 
 if (localStorage.getItem("delta") === null) {
+  console.log('no local storage found');
   
 } else {
-  
+    console.log(' local storage under name delta - found! ');
+
 const blob = localStorage.getItem("delta");;
 const delta = JSON.parse(localStorage.getItem('delta'));
 const content = quill.setContents(delta);

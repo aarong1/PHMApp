@@ -255,7 +255,8 @@ soa <- st_simplify(soa,TRUE,100)
 
 object.size(soa)
 
-leaflet(soa) |> addPolygons()
+leaflet(soa) |>
+  addPolygons()
 
 soa_map_pop <- read_excel("data/MYE20-SOA-WARD.xlsx", 
                           sheet = "Flat") 
@@ -449,6 +450,13 @@ soa_json <- jsonlite::read_json("soa.geojson")
 )
 
 e_arrange(x1, mdm_rank_tds, x2, cols = 3)
+
+browsable(
+  div(
+    div(x1), 
+    div(mdm_rank_tds, x2)
+  )
+  )
 
 (density_graph <- soa %>%
     group_by(Urban) |> 
