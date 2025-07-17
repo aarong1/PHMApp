@@ -2701,7 +2701,9 @@ const myAtropos2 = Atropos({
                                     ),
                                     
                                     ##dragAndDrop box -----
-                                    fluidRow(id='scroll_scenarios',style = 'padding-top:50px;height: 60%;',
+                                    fluidRow(id='scroll_scenarios',
+                                             class = 'bg-body-tertiary rounded-5',
+                                             style = 'padding-top:50px;height: 60%;',
                                              
                                              column(1, p('')),
                                              column(5,
@@ -2846,7 +2848,12 @@ const myAtropos2 = Atropos({
                                             
                                         ),
                                         
-                                        div(style = 'float:right;margin-top:40px;',
+                                        div(style = 'text-align:right;margin-top:40px;',
+                                            tags$style('wrapper {
+                                              background: linear-gradient(90deg ,rgba(142, 68, 173,0.3),white);
+                                                                          padding-inline: 10px;
+                                                                          border-radius: 15px;
+                                                                          }'),
                                             changing_words()
                                         ),
                                         
