@@ -99,70 +99,70 @@ ui <- fluidPage(
       )
 ),
 
-#   tags$head(
-#     tags$script(HTML("
-#   document.addEventListener('DOMContentLoaded', function () {
-#       console.log('DOM loaded');
-#   
-#   wrapper = document.getElementById('my_chart_wrapper');
-#       console.log(wrapper);
-#    
-#   chartDom = wrapper.querySelector('.echarts4r');
-#      console.log(chartDom);
-#      
-#      window.chartDom = chartDom;
-#      
-#   echarts_object = echarts.getInstanceByDom(chartDom);
-#       console.log(echarts.getInstanceByDom(chartDom));
-#   
-#  // window.echarts_object = echarts_object;
-#   
-#  // if (echarts_object) {
-#  //   echarts_object.setOption({
-#  //     series: [{
-#  //       name: 'y',
-#  //       type: 'line',
-#  //       data: [[2015, 1], [2, 1]]
-#  //     }]
-#  //   });
-#  // }
-# 
-#   document.getElementById('start').addEventListener('click', function () {
-# 
-#   echarts_object = echarts.getInstanceByDom(window.chartDom);
-#   
-#   window.echarts_object = echarts_object;
-# 
-#  if (echarts_object) {
-#   echarts_object.setOption({
-#     series: [{
-#       name: 'y',
-#       type: 'line',
-#   xAxis: {
-#     type: 'time',
-#      min: 2015,  // <-- explicitly start at the smallest value
-#     max: 2030,   // (optional) 
-#         scale: true      // <-- don’t force zero
-#     //data: ['Jan', 'Feb', 'Mar', 'Apr']
-#   },
-#   yAxis: {
-#     type: 'value',
-#     scale: true      // <-- don’t force zero
-#   },
-#   scale:true,
-#       data: [['2015', 4000], ['2016', 4323],['2017',4534]]
-#     }]
-#   });
-#  }
-# 
-#   console.log('Start button clicked');
-#   
-# });
-# });
-# 
-#                      ")
-#     )
-#   ),
+  tags$head(
+    tags$script(HTML("
+  document.addEventListener('DOMContentLoaded', function () {
+      console.log('DOM loaded');
+
+  wrapper = document.getElementById('my_chart_wrapper');
+      console.log(wrapper);
+
+  chartDom = wrapper.querySelector('.echarts4r');
+     console.log(chartDom);
+
+     window.chartDom = chartDom;
+
+  echarts_object = echarts.getInstanceByDom(chartDom);
+      console.log(echarts.getInstanceByDom(chartDom));
+
+ // window.echarts_object = echarts_object;
+
+ // if (echarts_object) {
+ //   echarts_object.setOption({
+ //     series: [{
+ //       name: 'y',
+ //       type: 'line',
+ //       data: [[2015, 1], [2, 1]]
+ //     }]
+ //   });
+ // }
+
+  document.getElementById('start').addEventListener('click', function () {
+
+  echarts_object = echarts.getInstanceByDom(window.chartDom);
+
+  window.echarts_object = echarts_object;
+
+ if (echarts_object) {
+  echarts_object.setOption({
+    series: [{
+      name: 'y',
+      type: 'line',
+  xAxis: {
+    type: 'time',
+     min: 2015,  // <-- explicitly start at the smallest value
+    max: 2030,   // (optional)
+        scale: true      // <-- don’t force zero
+    //data: ['Jan', 'Feb', 'Mar', 'Apr']
+  },
+  yAxis: {
+    type: 'value',
+    scale: true      // <-- don’t force zero
+  },
+  scale:true,
+      data: [['2015', 4000], ['2016', 4323],['2017',4534]]
+    }]
+  });
+ }
+
+  console.log('Start button clicked');
+
+});
+});
+
+                     ")
+    )
+  ),
   
 
   actionButton("start", "Start JS Model Run"),

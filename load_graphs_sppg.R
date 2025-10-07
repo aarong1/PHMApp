@@ -1,3 +1,6 @@
+load('sppg2.RData')
+
+tbl
 load('sppg.RData')
 
 stroke_HSCT

@@ -1,6 +1,7 @@
 library(shiny)
 #https://css-tricks.com/snippets/css/typewriter-effect/
 
+#https://mattboldt.com/demos/typed-js/
 
 browsable(tagList(
   tags$head(

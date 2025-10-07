@@ -215,7 +215,7 @@ div.info_card i{
 */
 
 .indent {
-  padding: 3px;
+  padding: 8px;
   transition: all 0.3s ease;
 
 }
@@ -290,10 +290,10 @@ button.neumorphic:active {
 }
              
 .carousel-indicators [data-bs-target] {
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         margin: 5px;
-        border-radius: 50%;
+        border-radius: 40%;
         background-color: black;
         z-index:-1;
       }
@@ -352,7 +352,7 @@ button.neumorphic:active {
   height: 70px;
   background: #e0e0e0;
   position: relative;
-  /*overflow: hidden;*/
+  overflow: hidden;
   border-radius: 4px;
   z-index:4;
 }

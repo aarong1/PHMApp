@@ -26,6 +26,10 @@ library(glue)
 library(leaflet)
 library(DT)
 library(apexcharter)
+library(fontawesome)
+library(jsonlite)
+library(data.table)
+
 #library(mapgl)
 #states <- sf::read_sf("https://rstudio.github.io/leaflet/json/us-states.geojson")
 
@@ -35,15 +39,15 @@ library(apexcharter)
 # source('./shiny_prep_graph.R')
 # source('./epi_prevalence_plots.R')
 
-addResourcePath('www',normalizePath('./components/sandbox'))
+# addResourcePath('www',normalizePath('./components/sandbox'))
 
 # source('./components/sandbox/scenarios_list_component.R')
 
 #source all custom components
-# paste0('./components/', dir(pattern='.R','./components') ) %>%
-#   map(.,.f=function(x){source(file=x)})
+paste0('./components/', dir(pattern='.R','./components') ) %>%
+  map(.,.f=function(x){source(file=x)})
 
-# source('./www/html_script_tags_w_injection/d3_scenario_input_widget.R')
+source('./www/html_script_tags_w_injection/d3_scenario_input_widget.R')
 
 # source some of the necessary data needed for the advanced custom components
 
@@ -311,7 +315,7 @@ ui <- div(
       
       includeScript(path = './www/js/animate_changing_words.js'),
       
-      HTML("<script defer =true>
+      HTML("<script defer = true>
         $(document).ready(function() {
     console.log('Page is fully loaded!');
 
@@ -343,7 +347,10 @@ ui <- div(
       HTML("<link rel='stylesheet' href='css/link_button_hover_visited.css' />"),
       HTML('<link  rel="stylesheet" href = css/text-divider.css />'),
       HTML('<link rel="icon" type="image/x-icon" href="img/favicon_io/favicon.ico">'),
-      includeCSS(path = './www/css/styles.css'),
+      #includeCSS(path = './www/css/styles.css'),
+      HTML("<link rel='stylesheet' href='css/styles.css' />"),
+      
+      
       #includeCSS(path = './www/progress_bar.css'),
       includeScript(path = './www/js/sliding_panel_on_scroll.js'),
       includeScript(path = './www/js/carousel.js'),
@@ -2215,7 +2222,7 @@ const myAtropos2 = Atropos({
                                                                           border-radius: 15px;
                                                                           }'),
                                             changing_words()
-                                        ),
+                                        )#,
                                         
                                         #   h4('Target attributes of the Intervention and their time prevalence in the population'),
                                         #   plotOutput('graph_risk_factors'),
@@ -2245,7 +2252,99 @@ const myAtropos2 = Atropos({
                                         #   )
                                     )
                           ),
-                          
+      
+      
+      
+      # Population page ----
+      nav_panel(title = HTML( '<b style="font-weight: bold;
+                          font-size: x-small;">NI</b> 
+                                                  Population '),
+                value = 'population',
+                #div(class='divider','Overview'),
+                class = 'fade m-3',
+                #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+                
+                HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Northern Irelands Population</li>
+  </ol>
+'),
+                HTML('<div id="wdr-component"></div>
+                  <head>
+                  <link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
+                  <script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+                  <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
+                  </head>
+                  </body>'),
+                
+                tags$head(tags$script(src = 'js/webdatarocks_pivot_table.js'))
+                
+                ),
+      # Fertility page  ----
+      nav_panel(title = HTML( '<b style="font-weight: bold;
+                          font-size: x-small;">Births</b> 
+                                                  Fertility, Deaths '),
+                value = 'births',
+                #div(class='divider','Overview'),
+                class = 'fade m-3',
+                #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+                
+                HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Population Changes</li>
+  </ol>
+'),
+
+
+  
+  # Container for the pivot table
+  div(id = "wdr-component"),
+  
+  # Include your custom JavaScript
+  tags$script(src = "js/webdatarocks_pivot_table.js")
+
+
+
+),
+      # Risk page ----
+      nav_panel(title = HTML( '<b style="font-weight: bold;
+                          font-size: x-small;">Risk </b>Changes 
+                                                  '),
+                value = 'births',
+                #div(class='divider','Overview'),
+                class = 'fade m-3',
+                #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+                
+                HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Risk Changes</li>
+  </ol>
+')),
+      
+      nav_panel(title = HTML( '<<i class="fa-solid fa-vial-circle-check"></i> <b style="font-weight: bold;
+                          font-size: x-small;"></b> 
+                                                  Screening'),
+                value = 'bowel_screening',
+                #div(class='divider','Overview'),
+                class = 'fade m-3',
+                #https://stackoverflow.com/questions/4907843/open-a-url-in-a-new-tab-and-not-a-new-window
+                
+                HTML('  <ol class="breadcrumb breadcrumb-nav p-3 bg-body-tertiary rounded-3">
+    <li class="breadcrumb-item fa fa-home" ><a href="#" onclick = window.change_tab("Landing");></a></li>
+    <li class="breadcrumb-item "><a href="#" onclick = window.change_tab("info-home");>Info</a></li>
+    <li class="breadcrumb-item  active">Bowel Screening Age Extension</li>
+  </ol>
+'),
+                
+                
+               div(class='d-flex', funnel, 
+                sankey)
+                
+                ),
+      
                           # SPPG results ----
                           nav_panel(title = HTML( '<b style="font-weight: bold;
                           font-size: x-small;">DoH</b> 
@@ -2332,7 +2431,7 @@ const myAtropos2 = Atropos({
                                     #   </nav>
                                     #   </nav>
                                     #   </div>
-                                    #   
+                                    # 
                                     #   <div class="col-8">
                                     #   <div data-bs-spy="scroll" data-bs-target="#scrollspy-nav" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
                                     #   <div id="item-1">
@@ -2366,7 +2465,6 @@ const myAtropos2 = Atropos({
                                     #   </div>
                                     #   </div>
                                     #   </div>'),
-                                    
                                     tags$head(
                                       tags$script(
                                         "// Re-initialize ScrollSpy every time a tab is shown
@@ -2375,6 +2473,7 @@ const myAtropos2 = Atropos({
                                           if (scrollSpy) {
                                             //scrollSpy.refresh();
                                           } else {
+                                          console.log('1');
                                             new bootstrap.ScrollSpy(document.body, {
                                               target: '#scrollspy-nav',
                                               offset: 0
@@ -2384,8 +2483,8 @@ const myAtropos2 = Atropos({
                                       )),
                                       
                                       # Scrollspy Nav
-                                    
-                                    div( class="row",
+
+                                     div( class="row",
                                       div( class="col-2",
                                     tags$nav(
                                       id = "scrollspy-nav",
@@ -2394,19 +2493,19 @@ const myAtropos2 = Atropos({
                                       `data-bs-target` = "#scrollspy-nav",
                                       `data-bs-offset` = "0",
                                       tabindex = "0",
-                                      
-                                      
+
+
                                       tags$a(class = "nav-link active", href = "#intro", "Intro", `data-value` = "interactive"),
-                                      
-                                      tags$a(class = "nav-link active", href = "#stroke", "Stroke", `data-value` = "interactive"),
-                                      
+
+                                      tags$a(class = "nav-link", href = "#stroke", "Stroke", `data-value` = "interactive"),
+
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#stroke_age", icon('person-cane'), `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#stroke_sex", icon('venus-mars'), `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#stroke_trust", icon('globe'), `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#stroke_MDMquintile", icon('comments-dollar'), `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section2", "Atrial Fibrillation", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#atrial_fibrillation_age", "Age", `data-value` = "interactive"),
@@ -2414,7 +2513,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#atrial_fibrillation_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#atrial_fibrillation_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section3", "Hypertension", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#hypertension_age", "Age", `data-value` = "interactive"),
@@ -2422,7 +2521,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#hypertension_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#hypertension_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section4", "CHD", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#chd_age", "Age", `data-value` = "interactive"),
@@ -2430,7 +2529,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#chd_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#chd_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section5", "CKD", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#ckd_age", "Age", `data-value` = "interactive"),
@@ -2438,7 +2537,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#ckd_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#ckd_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section6", "Diabetes", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#diabetes_age", "Age", `data-value` = "interactive"),
@@ -2446,7 +2545,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#diabetes_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#diabetes_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section7", "Heart Failure", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#heart_failure_age", "Age", `data-value` = "interactive"),
@@ -2454,7 +2553,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#heart_failure_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#heart_failure_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section8", "Dementia", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#dementia_age", "Age", `data-value` = "interactive"),
@@ -2462,7 +2561,7 @@ const myAtropos2 = Atropos({
                                                tags$a(class = "nav-link", href = "#dementia_trust", "Trust", `data-value` = "interactive"),
                                                tags$a(class = "nav-link", href = "#dementia_MDMquintile", "MDM", `data-value` = "interactive")
                                       ),
-                                      
+
                                       tags$a(class = "nav-link", href = "#section9", "Cancer", `data-value` = "interactive"),
                                       tags$div(class = "nav flex-row ms-3 my-1",
                                                tags$a(class = "nav-link", href = "#cancer_age", "Age", `data-value` = "interactive"),
@@ -2472,10 +2571,10 @@ const myAtropos2 = Atropos({
                                       )
                                     )
                                     ),
-                                    
-                                    
+
+# 
                                     div(class = 'col-9',
-  
+# 
                                     # Scrollspy content container — requires height and overflow
                                     div(
                                       id = "scrollspy-content",
@@ -2484,38 +2583,38 @@ const myAtropos2 = Atropos({
                                       #`data-bs-offset` = "0",
                                       #tabindex = "0",
                                       style = "position: relative; overflow-y: auto; scroll-behavior: smooth;", # height: 100vh;
-                                      
-                                      tags$div( id = "intro", 
+
+                                      tags$div( id = "intro",
                                                 h4('QoF definitions'),
                                                 tags$div(id = "item-1",
                                                          tags$h5("Stroke and Transient Ischaemic Attack (TIA)"),
                                                          tags$p("Number of patients with stroke or transient ischaemic attack (TIA).")
                                                 ),
-                                                
+
                                                 tags$div(id = "item-2",
                                                          tags$h5("Atrial Fibrillation"),
                                                          tags$p("Number of patients with atrial fibrillation.")
                                                 ),
-                                                
+
                                                 tags$div(id = "item-3",
                                                          tags$h5("Hypertension"),
                                                          tags$p("Number of patients with established hypertension.")
                                                 ),
-                                                
+
                                                 tags$div(id = "item-4",
                                                          tags$h5("Coronary Heart Disease"),
                                                          tags$p("Number of patients with coronary heart disease.")
                                                 ),
-                                                
+
                                                 tags$div(id = "item-5",
                                                          tags$h5("Chronic Kidney Disease"),
                                                          tags$p("Number of patients aged 18 years and over with chronic kidney disease (US National Kidney Foundation: Stage 3 to 5 CKD)."),
                                                          tags$div(id = "item-5-1",
-                                                                  tags$h5("Note 1"),
+                                                                 # tags$h5("Note 1"),
                                                                   tags$p("Inclusion in the register is based on estimated Glomerular Filtration Rate (eGFR), a measure of kidney function. People with CKD stages 3 to 5 have, by definition, less than 60% of their kidney function.")
                                                          ),
                                                          tags$div(id = "item-5-2",
-                                                                  tags$h5("Note 2"),
+                                                                 # tags$h5("Note 2"),
                                                                   tags$p("This register was removed from the QOF from 2014/15.")
                                                          ),
                                                          tags$div(id = "item-5-3",
@@ -2535,7 +2634,7 @@ const myAtropos2 = Atropos({
                                                                   tags$p("Patients with CKD stage G3 (eGFR 30-59 ml/min/1.73m2) have impaired kidney function. These patients can be further subdivided based on their eGFR as follows:\nCKD stage G3a: eGFR 45-59 ml/min/1.73m2\nCKD stage G3b: eGFR 30-44 ml/min/1.73m2")
                                                          )
                                                 ),
-                                                
+
                                                 tags$div(id = "item-6",
                                                          tags$h5("Cancer"),
                                                          tags$p("Number of patients with a diagnosis of cancer, excluding non-melanotic skin cancers, from 1st April 2003."),
@@ -2544,42 +2643,45 @@ const myAtropos2 = Atropos({
                                                                   tags$p("Because of the date cut-off in the definition of this register, prevalence trends are obscured by the increase in the size of the register due to the cumulative accrual of new cancer cases onto practice registers with each passing year.")
                                                          )
                                                 ),
-                                                
+
                                                 tags$div(id = "item-7",
                                                          tags$h5("Chronic Obstructive Pulmonary Disease (COPD)"),
                                                          tags$p("Number of patients with chronic obstructive pulmonary disease."),
                                                          tags$div(id = "item-7-1",
-                                                                  tags$h5("Note 1"),
+                                                                 # tags$h5("Note 1"),
                                                                   tags$p("For 2004/05 and 2005/06 QOF definitions did not allow patients to be on both asthma and COPD registers thus patients with a degree of reversible airway disease were not included on the COPD register. From 2006/07 the rules were revised to allow patients to be included on both COPD and asthma registers. Approximately 15% of patients with COPD will also have asthma. Any comparisons of COPD prevalence before and after this change in definition should be made with caution.")
                                                          )
                                                 ),
-                                                
+
                                                 tags$div(id = "item-8",
                                                          tags$h5("Diabetes Mellitus"),
                                                          tags$p("Number of patients aged 17 years and over with diabetes mellitus (specified as type 1 or type 2 diabetes)."),
                                                          tags$div(id = "item-8-1",
-                                                                  tags$h5("Note 1"),
+                                                                #  tags$h5("Note 1"),
                                                                   tags$p("Since April 2006, the definition includes all patients aged 17 years and over with diabetes mellitus defined by clinical (Read) codes specific to Type 1 or Type 2 diabetes. Previously there was a wider range of codes accepted under the definition, although the age constraint has remained consistent. The prevalence statistics for 2006/07 onwards are therefore not directly comparable with those for 2004/05 and 2005/06.")
                                                          ),
                                                          tags$div(id = "item-8-2",
-                                                                  tags$h5("Note 2"),
+                                                               #   tags$h5("Note 2"),
                                                                   tags$p("Although the practice must record whether the patient has Type 1 or Type 2 diabetes, this level of detail is not collected centrally, therefore the register size cannot be disaggregated by type of diabetes.")
                                                          )
                                                 ),
-                                                
+
                                                 tags$div(id = "item-9",
                                                          tags$h5("Dementia"),
                                                          tags$p("Number of patients diagnosed with dementia."),
                                                          tags$div(id = "item-9-1",
-                                                                  tags$h5("Note 1"),
+                                                                  # tags$h5("Note 1"),
                                                                   tags$p("This indicator applies to all people diagnosed with dementia either directly by the GP or through referral to secondary care.")
                                                          )
                                                 )
-                                                
-                                      ),
+),
 
+                                      # Stroke Section,
                                       
+# 
+# 
                                       div(id = "stroke", class = "pt-5", h2("Stroke")),
+                                      div(tbl, style = 'overflow:visible;width:1000px;padding-top:100px;padding-bottom:50px;z-index:10000000;'),
                                       div(id = "stroke_age", class = "pt-5", h4("Age")),
                                       stroke_age20,
                                       div(id = "stroke_sex", class = "pt-5", h4("Sex")),
@@ -2588,7 +2690,7 @@ const myAtropos2 = Atropos({
                                       stroke_HSCT,
                                       div(id = "stroke_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       stroke_mdm_quintile,
-                                      
+# 
                                       div(id = "atrial_fibrillation", class = "pt-5", h2("Atrial Fibrillation")),
                                       div(id = "atrial_fibrillation_age", class = "pt-5", h4("Age")),
                                       atrial_fibrillation_age20,
@@ -2598,7 +2700,7 @@ const myAtropos2 = Atropos({
                                       atrial_fibrillation_HSCT,
                                       div(id = "atrial_fibrillation_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       atrial_fibrillation_mdm_quintile,
-                                      
+
                                       div(id = "hypertension", class = "pt-5", h2("Hypertension")),
                                       div(id = "hypertension_age", class = "pt-5", h4("Age")),
                                       hypertension_age20,
@@ -2608,7 +2710,7 @@ const myAtropos2 = Atropos({
                                       hypertension_HSCT,
                                       div(id = "hypertension_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       hypertension_mdm_quintile,
-                                      
+
                                       div(id = "chd", class = "pt-5", h2("Coronary Heart Disease")),
                                       div(id = "chd_age", class = "pt-5", h4("Age")),
                                       chd_age20,
@@ -2618,7 +2720,7 @@ const myAtropos2 = Atropos({
                                       chd_HSCT,
                                       div(id = "chd_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       chd_mdm_quintile,
-                                      
+
                                       div(id = "ckd", class = "pt-5", h2("Chronic Kidney Disease")),
                                       div(id = "ckd_age", class = "pt-5", h4("Age")),
                                       chronic_kidney_disease_age20,
@@ -2628,7 +2730,7 @@ const myAtropos2 = Atropos({
                                       chronic_kidney_disease_HSCT,
                                       div(id = "ckd_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       chronic_kidney_disease_mdm_quintile,
-                                      
+
                                       div(id = "cancer", class = "pt-5", h2("Cancer")),
                                       div(id = "cancer_age", class = "pt-5", h4("Age")),
                                       lung_cancer_age20,
@@ -2638,7 +2740,7 @@ const myAtropos2 = Atropos({
                                       lung_cancer_HSCT,
                                       div(id = "cancer_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       lung_cancer_mdm_quintile,
-                                      
+
                                       div(id = "diabetes", class = "pt-5", h2("Diabetes")),
                                       div(id = "diabetes_age", class = "pt-5", h4("Age")),
                                       diabetes_age20,
@@ -2648,7 +2750,7 @@ const myAtropos2 = Atropos({
                                       diabetes_HSCT,
                                       div(id = "diabetes_MDMquintile", class = "pt-5", h4("MDM Quintile")),
                                       diabetes_mdm_quintile,
-                                      
+
                                       div(id = "dementia", class = "pt-5", h2("Dementia")),
                                       div(id = "dementia_age", class = "pt-5", h4("Age")),
                                       dementia_age20,
@@ -2657,14 +2759,14 @@ const myAtropos2 = Atropos({
                                       div(id = "dementia_trust", class = "pt-5", h4("Trust")),
                                       dementia_HSCT,
                                       div(id = "dementia_MDMquintile", class = "pt-5", h4("MDM Quintile")),
-                                      dementia_mdm_quintile,                                
-                                    
+                                      dementia_mdm_quintile,
+
                                       div(id = "outro", class = "pt-5", h2("Notes")),
-                                      
+# 
                                     )
-                                    
-                                    ) #col
-                                    
+# 
+                                      ) #col
+
                                     ) #row
 
                                     
@@ -2711,9 +2813,36 @@ const myAtropos2 = Atropos({
                                     ),
                                     br(),
                                     fluidRow(
+                                    
                                       
                                       #first column  ----
                                       column(3,offset=0,
+                                             
+                                             selectInputWithIcons(
+                                               "select_disease",
+                                               "isease:",
+                                               labels    = c("Stroke", "Coronary Heart Disease"),
+                                               values    = c("stroke" ,'CHD'),
+                                               icons     = list( c("smoking", "burger",'utensils',"weight", "wine-glass"),
+                                                                 c("smoking", "burger",'utensils',"weight", "wine-glass")),
+                                               iconStyle = "font-size: 3rem; vertical-align: middle;",
+                                               selected  = NULL
+                                             ),
+                                             
+                                             
+                                               
+                                               selectInputWithIcons(
+                                                 "select_risk",
+                                                 "Risk",
+                                                 labels    = c("smoking", "alcohol",'utensils','diet','BMI'),
+                                                 values    = c("smoking", "alcohol",'utensils','diet','bmi'),
+                                                 icons     =  list(c("smoking", "burger",'utensils',"weight", "wine-glass")),
+                                                                  ,
+                                                 iconStyle = "font-size: 3rem; vertical-align: middle;",
+                                                 selected  = NULL
+                                               ),
+                                             
+                                             
                                              ##first column first block
                                              div( style= 'border:solid lightgreen 3px; border-radius:10px;', #"margin:20px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",
                                                   # icon('computer-mouse',style='float:right;padding:15px;'),
@@ -2734,24 +2863,30 @@ const myAtropos2 = Atropos({
                                              
                                              tags$button('Submit', onclick = 'Shiny.setInputValue("show2",Math.random());return false;', inputId = 'submit',label = 'Submit', class='neumorphic', width ='100%'),
                                              
-                                             div(style= 'height:500px;margin-top:30px;border:solid lightgreen 3px; border-radius:10px;',
-                                                 
-                                                 h5(style = "padding:20px;",'Prevalence Over Time')
-                                             ),
+                                             # div(style= 'height:500px;margin-top:30px;border:solid lightgreen 3px; border-radius:10px;',
+                                             #     
+                                             #     h5(style = "padding:20px;",'Prevalence Over Time')
+                                             # ),
                                              
                                              div(style= 'margin-top:30px;border:solid lightgreen 3px;padding:20px; border-radius:10px;',
                                                  
                                                  #h5(style = "padding:10px;",'Prevalence Over Deprivation')
                                                  div(class='indent',h3('Prevention'),
-                                                     p(style = 'padding:15px;','The rates of incidence are diminished. Less people suffer onset.')
+                                                     p(style = 'padding:15px;','The rates of incidence are diminished. Less people suffer onset.'),
+                                                     img(src="img/svg/prevention.svg", style="float:right;width: 50px; height: auto;", alt="SVG icon")
                                                  ),
                                                  br(),
                                                  div(class='indent',h3('Remission'),
-                                                     p(style = 'padding:15px;','The disease or risk factor is mitigated to an extent, or symptoms managed, such that they are nearly or totally gone.')),
+                                                     p(style = 'padding:15px;','The disease or risk factor is mitigated to an extent, or symptoms managed, such that they are nearly or totally gone.'),
+                                                 img(src="img/svg/remission.svg", style="float:right;width: 50px; height: auto;", alt="SVG icon")
+                                                     ),
+                                                 
                                                  br(),
                                                  div(class='indent',
                                                      h3('Mitigation'),
-                                                     p(style = 'padding:15px;','Managing the burden of disease and preventing complications, while still suffering. Prevents, more serious, acute or chronic cardiovascular disease')
+                                                     p(style = 'padding:15px;','Managing the burden of disease and preventing complications, while still suffering. Prevents, more serious, acute or chronic cardiovascular disease'),
+                                                     img(src="img/svg/migration.svg", style="float:right;width: 50px; height: auto;", alt="SVG icon")
+                                                     
                                                  )
                                              )
                                       ),
@@ -2775,46 +2910,81 @@ const myAtropos2 = Atropos({
                   positive behavioural lifestyles.')
                                              ),
                                              
-                                             div(style= 'height:500px;margin-top:30px;border:solid lightgreen 3px; border-radius:10px;',#style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#"box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#style='margin-top:-50px;',
-                                                 #h5(style = "padding:10px;",'Evidence'),
-                                                 #h5(style = "padding:10px;",'Background'),
-                                                 #h5(style = "padding:10px;",'References')
-                                                 h5( style = "padding:20px;", 'Cardiovascular disease is going down, but remains the biggest killer in the world.
-                 In the UK it is the second biggest killer, after neurodegenerative diseases Alzheimers and dementia'),
-                                             )
+                 #                             div(style= 'height:500px;margin-top:30px;border:solid lightgreen 3px; border-radius:10px;',#style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#"box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#style='margin-top:-50px;',
+                 #                                 #h5(style = "padding:10px;",'Evidence'),
+                 #                                 #h5(style = "padding:10px;",'Background'),
+                 #                                 #h5(style = "padding:10px;",'References')
+                 #                                 h5( style = "padding:20px;", 'Cardiovascular disease is going down, but remains the biggest killer in the world.
+                 # In the UK it is the second biggest killer, after neurodegenerative diseases Alzheimers and dementia'),
+                 #                             )
                                       ),
                                       column(3,
-                                             div(style= 'border:solid lightgreen 3px; border-radius:10px;height:100px;',#style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",
+                                           #  div(style= 'border:solid lightgreen 3px; border-radius:10px;height:100px;',#style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",
                                                  
-                                             ),
+                                            # ),
                                              
                                              #second row ------
+                                           
+                                           tags$head(HTML("<script>
+                                           
+                                            //https://www.youtube.com/watch?v=UqEmFSlx4ps
+                                            //https://codepen.io/Coding_Journey/pen/RwGzqgJ
+                                            //tilt.js
+                                            
+                                            $(document).ready(function () {
+                                             const box = document.getElementById('carouselExample');
+                                           
+                                           box.addEventListener('mousemove', function (e) {
+                                             const bounds = box.getBoundingClientRect();
+                                             const x = e.clientX - bounds.left;
+                                             const y = e.clientY - bounds.top;
+                                             const centerX = bounds.width / 2;
+                                             const centerY = bounds.height / 2;
+                                             
+                                             const percentX = (x - centerX) / centerX;
+                                             const percentY = (y - centerY) / centerY;
+                                             
+                                             const maxTilt = 10;
+                                             const tiltX = -percentY * maxTilt;
+                                             const tiltY = percentX * maxTilt;
+                                             
+                                             box.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
+                                           });
+                                           
+                                           box.addEventListener('mouseleave', function () {
+                                             box.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                                           });
+                                            });
+                                           </script>")
+                                                    ),
+                                           
                                              div(style= 'height:500px;margin-top:30px;border:solid lightgreen 3px; border-radius:10px;',
                                                  h5(style = "padding:20px 20px 0px 20px;",'Attributes/ Parameters'),
                                                  div( carousel('carouselExample')),
                                                  
                                              ),#style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#"box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",#style='margin-top:-50px;',
                                              #third row --------
-                                             div( style= 'margin-top:30px;border:solid orange 3px; border-radius:10px;', #"margin:20px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",
-                                                  # icon('computer-mouse',style='float:right;padding:15px;'),
-                                                  h5(style = "padding:5px;",'Configuration of interventions'),
-                                                  
-                                                  div(style = 'padding:10px;height:150px;
-  margin:10px;
-  border: solid lightgreen 3px;
-  border-radius:10px;',
-                                                      icon('table',style='height:200px;float:right;margin:5px;'),
-                                                      
-                                                      DT::DTOutput('table_configutation')
-                                                  ),
-                                                  
-                                                  div( style= 'height:300px;border:solid white 3px; border-radius:10px;margin:10px', 
-                                                       
-                                                       h5(style = "padding:10px;",'Intervention'),
-                                                       
-                                                       
-                                                  )
-                                             ),
+                                           
+  #                                            div( style= 'margin-top:30px;border:solid orange 3px; border-radius:10px;', #"margin:20px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;",
+  #                                                 # icon('computer-mouse',style='float:right;padding:15px;'),
+  #                                                 h5(style = "padding:5px;",'Configuration of interventions'),
+  #                                                 
+  #                                                 div(style = 'padding:10px;height:150px;
+  # margin:10px;
+  # border: solid lightgreen 3px;
+  # border-radius:10px;',
+  #                                                     icon('table',style='height:200px;float:right;margin:5px;'),
+  #                                                     
+  #                                                     DT::DTOutput('table_configutation')
+  #                                                 ),
+  #                                                 
+  #                                                 div( style= 'height:300px;border:solid white 3px; border-radius:10px;margin:10px', 
+  #                                                      
+  #                                                      h5(style = "padding:10px;",'Intervention'),
+  #                                                      
+  #                                                      
+  #                                                 )
+  #                                            ),
                                       ),
                                       
                                       ###right sidebar -----
@@ -2826,7 +2996,7 @@ const myAtropos2 = Atropos({
                                                  h6('Cost per capita'),
                                                  p('Total administered, lack of adherence or other wastage is considered separately'),
                                                  div(class='cost', numericInput(width = '80%','cost',label='',value = 5,min = 0,max=10000)),
-                                                 cost_component(),
+                                                 # cost_component(),
                                                  HTML('<div class="skeleton" style = "display:flex;flex-direction:column;  gap: 16px;">
   <div class="skeleton-box"></div>
   <div class="skeleton-title"></div>
@@ -2842,8 +3012,8 @@ const myAtropos2 = Atropos({
   <div class="skeleton-row"></div>
 
 </div>')  
-                                             )
-                                      ),
+                                             ) #end fixed pane
+                                      ), # end column
                                       
                                       
                                       
@@ -2860,10 +3030,54 @@ const myAtropos2 = Atropos({
                                       #   text-align: center;
                                       #   line-height: 50px; /* Center the text vertically */',5)
                                       # 
-                                      #         )git 
+                                      #         )
                                       # )
-                                    )
-                          )#,
+                                    ), # end row
+  
+  ## target_echarts ----
+  div(id = 'target_echart',class = 'd-flex align-items-center justify-content-center',
+      data.frame(year = 2023, incidence = 1) |> 
+        mutate(year = as.character(year)) |> 
+        e_chart(year) |> 
+        e_line(incidence)
+      
+  ),
+  tags$script(src = "js/update_chart_w_model_runs.js"),
+  tags$head(tags$script(#defer = TRUE,
+    "Shiny.addCustomMessageHandler('updateChart', function(seriesList) {
+  const chartEl = document.querySelector('#target_echart > .echarts4r');
+  if (!chartEl) {
+    console.warn('Chart container not found');
+    return;
+  }
+
+  const chart = echarts.getInstanceByDom(chartEl);
+  if (!chart) {
+    console.warn('ECharts instance not ready');
+    return;
+  }
+
+  const legendData = seriesList.map(s => s.name);
+  const seriesConfig = seriesList.map(s => ({
+    name: s.name,
+    type: 'line',
+    data: s.data
+  }));
+
+  chart.setOption({
+    xAxis: { type: 'time', scale: true, max: '2030-01-01' },
+    yAxis: { type: 'value', scale: true },
+    tooltip: { trigger: 'axis' },
+    legend: { data: legendData },
+    series: seriesConfig
+  });
+});
+    "))
+    
+  
+  
+      
+                          ) # end nav panel #,
                           
                           #   nav_panel(value = 'Report Builder',
                           #             title='Report',
@@ -2980,6 +3194,8 @@ server <- function(input, output, session) {
     
   })
   
+  
+  
   #risk and evidence
   output$network_risk_lineage <- renderVisNetwork({
     network_risk_lineage
@@ -3038,19 +3254,167 @@ server <- function(input, output, session) {
     ))
   })
   
+#   observeEvent(input$show2, {
+#     print(input$show2)
+#     showModal(modalDialog(size = 's',
+#                           div(style='display:flex;align-content:center;justify-content:center;',
+#                               htmltools::HTML('<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+# <dotlottie-player src="https://lottie.host/9c018b56-3182-45ff-9030-05432950e693/gZE7PaFso4.json" background="transparent" speed="0.2" style="width: 200px; height: 200px" direction="1" playMode="normal" loop autoplay></dotlottie-player>'
+#                               ),
+#                               h4('loading...')
+#                           ),
+#                           easyClose = TRUE,
+#                           footer = NULL
+#                           
+#     ))
+#   })
+  dummy <- reactiveVal(NULL)
+  
+  ## run_model ----
   observeEvent(input$show2, {
     print(input$show2)
-    showModal(modalDialog(size = 's',
-                          div(style='display:flex;align-content:center;justify-content:center;',
-                              htmltools::HTML('<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-<dotlottie-player src="https://lottie.host/9c018b56-3182-45ff-9030-05432950e693/gZE7PaFso4.json" background="transparent" speed="0.2" style="width: 200px; height: 200px" direction="1" playMode="normal" loop autoplay></dotlottie-player>'
-                              ),
-                              h4('loading...')
-                          ),
-                          easyClose = TRUE,
-                          footer = NULL
-                          
-    ))
+    
+    past_populations <- data.frame()#initial_time_zero_population)
+    
+    for(run in 1:(test_specification$model$number_of_runs)) {
+      
+      cat(paste('################################### \n run : ', run, ' \n###################################### \n'))
+      
+      #reinstate the same initial time zero population for each new run some they are comparable
+      #current_population <- initial_time_zero_population |> 
+      #  mutate(run = {{run}})
+      
+      population_w_established_prevalence <- reduce2(
+        .x = rep(trusts,length(morbidities)),
+        .y = rep(morbidities,each = length(trusts)),
+        .init = initial_time_zero_population,
+        .f = function(pop, trust, morbidity) {
+          
+          assign_year_minus_one_prevalence(
+            input_population = pop,
+            trust = trust,
+            morbidity = morbidity,
+            #year = 2017,
+            prevalence_df = prevalence_hsct_new,
+            configuration = test_specification
+          )
+        }
+      )
+      
+      
+      
+      
+      current_population <- population_w_established_prevalence |> 
+        mutate(run = {{run}})
+      
+      current_population <- current_population |> mutate(bern_trial = runif(n()))
+      
+      for (time in 1:test_specification$model$duration){
+        
+        cat(paste('###################################### \n Time, t : ', time, '\n Run, r:', run,'\n###################################### \n'))
+        
+        print('Adding the current population to the past populations data structure')
+        #current_population <- current_population |> select(-bern_trial)
+        past_populations <- rbind(past_populations, current_population)
+        
+        current_population <- current_population |>
+          mutate(age = age + 1) |> 
+          mutate(
+            age20 = cut(age,include.lowest = T,
+                        breaks = seq(0,120,20),
+                        labels = c('0-20',
+                                   '20-40',
+                                   '40-60',
+                                   '60-80',
+                                   '80-100',
+                                   '100-120')
+            )
+          )
+        
+        current_population <- current_population |>
+          mutate(year = year + 1)
+        
+        print('Apply and Partition deaths')
+        
+        current_population <- current_population %>% 
+          apply_age_sex_death(apply_death = F) |> 
+          apply_qmortality_mortality(apply_death = T)
+        #uses data.table - not converts back to data frame in function
+        
+        current_population_who_died <- current_population |> 
+          filter( !is.na(death) & !is.null(death) & !death==0 )
+        
+        dead_population <- rbind(dead_population, current_population_who_died)
+        
+        current_population_alive <- current_population |> 
+          filter(is.na(death)| is.null(death)| death==0)
+        
+        current_population <- current_population_alive
+        
+        
+        if (FALSE){  
+          print('Shouldnt enter')
+          
+        }else{ # baseline always runs
+          
+          print('entered non intervention loop')
+          
+          current_population <- current_population |> 
+            calculate_risk_of_morbidity()
+          
+          print('Applying absolute morbidity onset')
+          print(paste('population df run',max(current_population$run)))
+          
+          current_population <- current_population |> 
+            declare_absolute_incident_morbidity(morbidity = "stroke") |> 
+            declare_absolute_incident_morbidity(morbidity = "chd") |> 
+            declare_absolute_incident_morbidity(morbidity = "diabetes") |> 
+            declare_absolute_incident_morbidity(morbidity = "dementia") |> 
+            declare_absolute_incident_morbidity(morbidity = "heart_failure") |> 
+            declare_absolute_incident_morbidity(morbidity = "atrial_fibrillation") |> 
+            declare_absolute_incident_morbidity(morbidity = "hypertension") |> 
+            declare_absolute_incident_morbidity(morbidity = "chronic_kidney_disease") |> 
+            declare_absolute_incident_morbidity(morbidity = "lung_cancer") 
+          
+          print('Calculating the incidence of stroke')
+          df <- count(past_populations, stroke  = (stroke!=0), run, year) |>
+            filter(stroke ==TRUE) |> 
+            mutate(n = n * test_specification$population$scale_down_factor)
+          print(df)
+          
+          
+          df_json <- jsonlite::toJSON(
+            unname(as.list(df[c('year','n')])),  # prevent named keys like "year", "incidence"
+            dataframe = "columns",
+            auto_unbox = TRUE
+          )
+          print(df_json)
+          
+          print('Calculating the json')
+          
+          series_list <- df %>%
+            group_by(run) %>%
+            summarise(data = list(map2(as.character(year), n, ~ list(.x, .y)))) %>%
+            mutate(name = paste0("run ", run)) %>%
+            transmute(name, data) %>%
+            jsonlite::toJSON(auto_unbox = TRUE)
+          
+          
+          
+          print(series_list)
+          print('calculating the series list')
+          
+          session$sendCustomMessage("updateChart", series_list)
+          
+          
+        }
+        
+      }
+      
+      
+    }
+    
+    
   })
   
   new_data <- reactiveVal(jdata %>% mutate(final=NA) )
@@ -3250,8 +3614,8 @@ server <- function(input, output, session) {
         ggplot() +
         geom_line(aes(year,`synthetic population morbidity`,
                       color=`impact parameter`,group=`impact parameter`))+
-        facet_wrap(~category1+name1,scales = 'free') +
-        theme_classic()+
+        facet_wrap(~category1 + name1,scales = 'free') +
+        theme_classic() +
         labs(title='Plot of the impacted physiological states of individuals over 20yr of a population wide statin prescription',
              subtitle = 'Simulating the effect of a universal, population wide statin prescription.\nThe "impact parameter" is a measure of impact of the prescription. It is simulated from 0% to 10% efficacy at 1% increments\n'
         ) )
