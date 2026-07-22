@@ -6,57 +6,62 @@ library(echarts4r)
 library(readr)
 library(tidyverse)
 
-mdm_soa <- read_excel("data/NIMDM17_SOAresults.xls", 
-                                 sheet = "MDM")
+# mdm_soa <- read_excel("data/NIMDM17_SOAresults.xls", 
+#                                  sheet = "MDM")
+# 
+# npp <- read_excel("data/NPP20-ppp-age-sex.xlsx", 
+#                                 sheet = "Tabular 5 Year Age Bands", skip = 1)
+# 
+# dp <- read_csv("disease_prevalence_trust.csv")
 
-npp <- read_excel("data/NPP20-ppp-age-sex.xlsx", 
-                                sheet = "Tabular 5 Year Age Bands", skip = 1)
 
-dp <- read_csv("disease_prevalence_trust.csv")
+mdm_soa <- read.fst('./preprocessed_data/mdm_soa.fst')
+npp <- read.fst( './preprocessed_data/npp.fst')
+dp <- read.fst( './preprocessed_data/dp.fst')
 
-(
-disease_prevalence_plots <- dp |> 
-  filter(`Statistic Label` %in%
-           "Raw disease prevalence per 1,000 patients" #,
-         #Disease =='Asthma'
-         ) |> 
- # group_by(`Health and Social Care Trust`) |> 
-apex(synchronize = F,
-  aes(x = `Financial Year`, y = VALUE, colour = `Health and Social Care Trust`),
-  type = "line"
-) |> ax_markers(size = 5) |> 
-  ax_chart(sparkline = list(enabled=TRUE)) |> 
-    
-   ax_colors( '#dd6b66',
-  '#759aa0',
-  '#e69d87',
-  '#8dc1a9',
-  '#ea7e53',
-  '#eedd78',
-  '#73a373',
-  '#73b9bc',
-  '#7289ab',
-  '#91ca8c',
-  '#f49f42') |> 
-    #ax_colors('#c23531',
-    #          '#2f4554',
-    #          '#61a0a8',
-    #          '#d48265',
-    #          '#91c7ae',
-    #          '#749f83',
-    #          '#ca8622',
-    #          '#bda29a',
-    #          '#6e7074',
-    #          '#546570',
-    #          '#c4ccd3') |> 
-  ax_facet_wrap(ncol = 3,
-                grid_width = '1200px',
-                chart_height = '400px', 
-                vars( Disease),scales = 'free') |> 
-  ax_legend(show=TRUE) |> 
-    ax_tooltip(shared=F) |> 
-  ax_grid(padding = list(left=50,right=50,top=20,bottom=50))
-)
+# (
+# disease_prevalence_plots <- dp |> 
+#   filter(`Statistic Label` %in%
+#            "Raw disease prevalence per 1,000 patients" #,
+#          #Disease =='Asthma'
+#          ) |> 
+#  # group_by(`Health and Social Care Trust`) |> 
+# apex(synchronize = F,
+#   aes(x = `Financial Year`, y = VALUE, colour = `Health and Social Care Trust`),
+#   type = "line"
+# ) |> ax_markers(size = 5) |> 
+#   ax_chart(sparkline = list(enabled=TRUE)) |> 
+#     
+#    ax_colors( '#dd6b66',
+#   '#759aa0',
+#   '#e69d87',
+#   '#8dc1a9',
+#   '#ea7e53',
+#   '#eedd78',
+#   '#73a373',
+#   '#73b9bc',
+#   '#7289ab',
+#   '#91ca8c',
+#   '#f49f42') |> 
+#     #ax_colors('#c23531',
+#     #          '#2f4554',
+#     #          '#61a0a8',
+#     #          '#d48265',
+#     #          '#91c7ae',
+#     #          '#749f83',
+#     #          '#ca8622',
+#     #          '#bda29a',
+#     #          '#6e7074',
+#     #          '#546570',
+#     #          '#c4ccd3') |> 
+#   ax_facet_wrap(ncol = 3,
+#                 grid_width = '1200px',
+#                 chart_height = '400px', 
+#                 vars( Disease),scales = 'free') |> 
+#   ax_legend(show=TRUE) |> 
+#     ax_tooltip(shared=F) |> 
+#   ax_grid(padding = list(left=50,right=50,top=20,bottom=50))
+# )
 
 # Sample Data
 df <- data.frame(

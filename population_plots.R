@@ -1,47 +1,9 @@
-library(readxl)
-library(readODS)
 
-lgd_pop <- read_excel("data/MYE22-gender-SYA-lgd2014.xlsx", 
-    sheet = "Flat")
 
-# View(lgd_pop)
-
-lgd_pop %>% 
-  filter(area_code!='N92000002', # exclude Northern Ireland
-         year==max(year),
-         sex != 'All persons') %>% 
-  select(-c(year,area))
-
-# https://www.nisra.gov.uk/publications/2020-mid-year-population-estimates-northern-ireland
-soa_pop <- read_excel("data/MYE20-SOA-WARD (1).xlsx", 
-    sheet = "Flat")
-#View(soa_pop)
-
-soa_pop <- soa_pop %>% 
-  filter( 
-  area=='1. Super Output Areas', # exclude Northern Ireland
-         year==max(year),
-         gender != 'All persons',
-  age!='All ages') %>% 
-    select(-c(year,area))
-
-names(soa_pop)[c(5,6)] <- c('ageband','pop')
-
-#https://statistics.ukdataservice.ac.uk/dataset/2011-uk-townsend-deprivation-scores 
-#local authority
-townsend <- read_csv("data/townsend Scores- 2011 UK Local Authority.csv")
-names(townsend) <- paste0('townsend_',names(townsend))
-# View(townsend)
-
-#https://www.nisra.gov.uk/publications/nimdm17-soa-level-results
-soa_mdm <- read_excel('./data/NIMDM17_SOAresults.xls',sheet='MDM')
-soa_mdm<- soa_mdm[1:5]
-names(soa_mdm) <- 
-c("LGD2014NAME",                                                             
-"Urban",                                                
-"SOA2001",                                                                 
-"SOA2001_name",                                                            
-"mdm_rank")
+townsend <- read.fst('./preprocessed_data/townsend.fst')
+lgd_pop <- read.fst('./preprocessed_data/lgd_pop.fst')
+soa_pop <- read.fst('./preprocessed_data/soa_pop.fst')
+soa_mdm <- read.fst('./preprocessed_data/soa_mdm.fst')
 
 # soa_lgd24 <- read_ods(skip = 2,
 #          sheet = 'SOA2001_2_LGD2014',
