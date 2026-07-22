@@ -2702,7 +2702,7 @@ const myAtropos2 = Atropos({
 #
 #
                                       div(id = "stroke", class = "pt-5", h2("Stroke")),
-                                      div(tbl, style = 'overflow:visible;width:1000px;padding-top:100px;padding-bottom:50px;z-index:10000000;'),
+                                      # div(tbl, style = 'overflow:visible;width:1000px;padding-top:100px;padding-bottom:50px;z-index:10000000;'),
                                       div(id = "stroke_age", class = "pt-5", h4("Age")),
                                       stroke_age20,
                                       div(id = "stroke_sex", class = "pt-5", h4("Sex")),

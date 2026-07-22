@@ -1,4 +1,4 @@
-load('sppg2.RData')
+# load('sppg2.RData')
 
 # tbl
 # load('sppg.RData')
