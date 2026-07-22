@@ -3669,4 +3669,5 @@ server <- function(input, output, session) {
 }
 
 # Run the application 
-options(shiny.autoreload =T); shinyApp(ui = ui, server = server)
+# options(shiny.autoreload =T); 
+shinyApp(ui = ui, server = server)
