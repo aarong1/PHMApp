@@ -4216,7 +4216,7 @@
       "checksum": "ad47ffc0fb39f810b37da23769d01914"
     },
     "app.R": {
-      "checksum": "032c362bdf5b260b145cb763e886a452"
+      "checksum": "26a9588fee8bb3a4bd67e0868968c2b5"
     },
     "chart_update_module/DESCRIPTION": {
       "checksum": "f459eb408412b3b685f1b47b0b3fd810"
@@ -4528,7 +4528,7 @@
       "checksum": "45f5c1c0060458c696367fb73fd03bca"
     },
     "demographics_charts.R": {
-      "checksum": "72308fd0d49d36c0bfeacb406a2019c3"
+      "checksum": "1b19f5c9d67579ddd54c6221496777ee"
     },
     "disease_prevalence_trust.csv": {
       "checksum": "413851fcd2bb2c19b311471fcbbdcc39"
@@ -4537,7 +4537,7 @@
       "checksum": "c65d563cac7d60cbc4163b5d1352a185"
     },
     "epi_prevalence_plots.R": {
-      "checksum": "259e01f52d54f8696381a67d5ffcd556"
+      "checksum": "c4ae40284e7aeaca654c81bf1806a1c0"
     },
     "human_body_hmtlwidget.R": {
       "checksum": "d41d8cd98f00b204e9800998ecf8427e"
@@ -4553,6 +4553,9 @@
     },
     "mock_intervention_app.R": {
       "checksum": "70e0ed99e13940ce1b056f65b5f81f76"
+    },
+    "necessary_demographic_charts.R": {
+      "checksum": "787debbdf33557d9181fd5188998bc22"
     },
     "NPP18_ppp_age_sex (1).xlsx": {
       "checksum": "b5c0ad300fbc162e66448a14feb4297e"
@@ -4585,13 +4588,40 @@
       "checksum": "9ed2da65112ca6ede43bedce28649316"
     },
     "population_plots.R": {
-      "checksum": "4c9b30de69a7cfdcfdc7e72440da2802"
+      "checksum": "0ce16cb0906e871cfc9ecad206505f0a"
     },
     "prep_interactive_model_run.R": {
       "checksum": "e5bc38d21c2555ac5d0eff63067cff90"
     },
     "prep_interactive_model_run.RData": {
       "checksum": "30270a3f452e2089377644c00007722e"
+    },
+    "preprocess.R": {
+      "checksum": "fb25a19eb7501446b7da39d6a030f340"
+    },
+    "preprocessed_data/dp.fst": {
+      "checksum": "6e3a311520fb975cd3fc651aa8b7b443"
+    },
+    "preprocessed_data/eth_absolute.fst": {
+      "checksum": "5dfa601746967d1e55b0422531b697c9"
+    },
+    "preprocessed_data/lgd_pop.fst": {
+      "checksum": "2befb4ce02697bd5c54f1bc75b9d24d1"
+    },
+    "preprocessed_data/mdm_soa.fst": {
+      "checksum": "49555f1c675b79c19fdd53f15bce7e91"
+    },
+    "preprocessed_data/npp.fst": {
+      "checksum": "8b27dad55133d65119f5a27fa0d5f124"
+    },
+    "preprocessed_data/soa_mdm.fst": {
+      "checksum": "4d76da85468b4a1abad81165efbaa996"
+    },
+    "preprocessed_data/soa_pop.fst": {
+      "checksum": "7265d4b53be808e4f6d27eb03b44fdfc"
+    },
+    "preprocessed_data/townsend.fst": {
+      "checksum": "875fb797badef92fd61f8d978d5526ae"
     },
     "prescriptions_trust.csv": {
       "checksum": "5b8b2adbf3dd67c593efa4966ce577d7"

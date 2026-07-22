@@ -14,6 +14,7 @@ library(shinyjqui)
 library(bslib)
 library(igraph)
 library(visNetwork)
+library(fst)
 # library(yaml)
 
 #fileName='statins.yaml'
