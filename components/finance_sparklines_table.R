@@ -38,7 +38,7 @@ x <- data %>%
   e_grid(left = "5%", right = "5%", top = "10%", bottom = "5%") %>%  # Adjust margins
   e_x_axis(show = FALSE) %>%  # Hide x-axis
   e_y_axis(show = FALSE) %>% tagList %>% as.character() %>% HTML()
-library(reactable)
+# library(reactable)
 
 
 data.frame(x=x) %>% 
@@ -55,8 +55,8 @@ datatable( # Only display the relevant columns
   )
 )
 
-library(reactablefmtr)
-library(dataui)
+# library(reactablefmtr)
+# library(dataui)
 
 data %>% 
 reactable(

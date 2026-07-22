@@ -1,6 +1,6 @@
 library(shiny)
 library(htmltools)
-library(sparkline)
+# library(sparkline)
 library(dplyr)
 library(purrr)
 

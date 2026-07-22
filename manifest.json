@@ -979,42 +979,6 @@
         "Archs": "data_table.so.dSYM"
       }
     },
-    "dataui": {
-      "Source": "github",
-      "Repository": null,
-      "description": {
-        "Package": "dataui",
-        "Type": "Package",
-        "Title": "`Data-UI` Interactive Visualizations",
-        "Version": "0.0.1",
-        "Date": "2020-06-26",
-        "Authors@R": "c(\n      person(\n        \"Chris\", \" Williams\"\n        , role = c(\"aut\", \"cph\")\n        , comment = \"data-ui library, https://williaster.github.io/data-ui\"\n      ),\n      person(\n        \"Kent\", \"Russell\"\n        , role = c(\"aut\", \"cre\")\n        , comment = \"R interface\"\n        , email = \"kent.russell@timelyportfolio.com\"\n      ),\n      person(\n        \"Ken\", \"Steif\"\n        , role = c(\"ctb\")\n        , comment = \"R interface\"\n      )\n  )",
-        "Maintainer": "Kent Russell <kent.russell@timelyportfolio.com>",
-        "URL": "https://github.com/timelyportfolio/dataui",
-        "BugReports": "https://github.com/timelyportfolio/dataui/issues",
-        "Description": "Create sparklines and histograms with 'data-ui'.",
-        "License": "MIT + file LICENSE",
-        "Imports": "glue, htmltools, htmlwidgets, jsonlite, reactR",
-        "Suggests": "knitr, markdown, reactable, rmarkdown",
-        "Enhances": "DT, shiny",
-        "RoxygenNote": "7.1.1",
-        "VignetteBuilder": "knitr",
-        "RemoteType": "github",
-        "RemoteHost": "api.github.com",
-        "RemoteRepo": "dataui",
-        "RemoteUsername": "timelyportfolio",
-        "RemoteRef": "HEAD",
-        "RemoteSha": "39583c661edddb44214a269aed5393ba91b2789d",
-        "GithubRepo": "dataui",
-        "GithubUsername": "timelyportfolio",
-        "GithubRef": "HEAD",
-        "GithubSHA1": "39583c661edddb44214a269aed5393ba91b2789d",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-07-19 18:46:21 UTC; aarongorman",
-        "Author": "Chris Williams [aut, cph] (data-ui library,\n    https://williaster.github.io/data-ui),\n  Kent Russell [aut, cre] (R interface),\n  Ken Steif [ctb] (R interface)",
-        "Built": "R 4.5.1; ; 2025-07-19 18:46:22 UTC; unix"
-      }
-    },
     "dbplyr": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -2726,91 +2690,6 @@
         "Archs": "rappdirs.so.dSYM"
       }
     },
-    "reactR": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "reactR",
-        "Type": "Package",
-        "Title": "React Helpers",
-        "Version": "0.6.1",
-        "Date": "2024-09-14",
-        "Authors@R": "c(\n      person(\n        \"Facebook\", \"Inc\"\n        , role = c(\"aut\", \"cph\")\n        , comment = \"React library in lib, https://reactjs.org/; see AUTHORS for full list of contributors\"\n      ),\n      person(\n        \"Michel\",\"Weststrate\",\n        , role = c(\"aut\", \"cph\")\n        , comment = \"mobx library in lib, https://github.com/mobxjs\"\n      ),\n      person(\n        \"Kent\", \"Russell\"\n        , role = c(\"aut\", \"cre\")\n        , comment = \"R interface\"\n        , email = \"kent.russell@timelyportfolio.com\"\n      ),\n      person(\n        \"Alan\", \"Dipert\"\n        , role = c(\"aut\")\n        , comment = \"R interface\"\n        , email = \"alan@rstudio.com\"\n      ),\n      person(\n        \"Greg\", \"Lin\"\n        , role = c(\"aut\")\n        , comment = \"R interface\"\n        , email = \"glin@glin.io\"\n      )\n    )",
-        "Maintainer": "Kent Russell <kent.russell@timelyportfolio.com>",
-        "Description": "Make it easy to use 'React' in R with 'htmlwidget' scaffolds,\n              helper dependency functions, an embedded 'Babel' 'transpiler',\n              and examples.",
-        "URL": "https://github.com/react-R/reactR",
-        "BugReports": "https://github.com/react-R/reactR/issues",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "Imports": "htmltools",
-        "Suggests": "htmlwidgets (>= 1.5.3), rmarkdown, shiny, V8, knitr, usethis,\njsonlite",
-        "RoxygenNote": "7.3.2",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-09-14 13:24:57 UTC; kentr",
-        "Author": "Facebook Inc [aut, cph] (React library in lib, https://reactjs.org/;\n    see AUTHORS for full list of contributors),\n  Michel Weststrate [aut, cph] (mobx library in lib,\n    https://github.com/mobxjs),\n  Kent Russell [aut, cre] (R interface),\n  Alan Dipert [aut] (R interface),\n  Greg Lin [aut] (R interface)",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-09-14 13:50:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-01 06:34:44 UTC; unix"
-      }
-    },
-    "reactable": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "reactable",
-        "Type": "Package",
-        "Title": "Interactive Data Tables for R",
-        "Version": "0.4.5",
-        "Authors@R": "c(\n    person(\"Greg\", \"Lin\", email = \"glin@glin.io\", role = c(\"aut\", \"cre\")),\n    person(\"Tanner\", \"Linsley\", role = c(\"ctb\", \"cph\"), comment = \"React Table library\"),\n    person(family = \"Emotion team and other contributors\", role = c(\"ctb\", \"cph\"),\n           comment = \"Emotion library\"),\n    person(\"Kent\", \"Russell\", role = c(\"ctb\", \"cph\"), comment = \"reactR package\"),\n    person(\"Ramnath\", \"Vaidyanathan\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Joe\", \"Cheng\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"JJ\", \"Allaire\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Yihui\", \"Xie\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Kenton\", \"Russell\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(family = \"Facebook, Inc. and its affiliates\", role = c(\"ctb\", \"cph\"), comment = \"React library\"),\n    person(family = \"FormatJS\", role = c(\"ctb\", \"cph\"), comment = \"FormatJS libraries\"),\n    person(family = \"Feross Aboukhadijeh, and other contributors\", role = c(\"ctb\", \"cph\"),\n           comment = \"buffer library\"),\n    person(\"Roman\", \"Shtylman\", role = c(\"ctb\", \"cph\"), comment = \"process library\"),\n    person(\"James\", \"Halliday\", role = c(\"ctb\", \"cph\"), comment = \"stream-browserify library\"),\n    person(family = \"Posit Software, PBC\", role = c(\"fnd\", \"cph\"))\n    )",
-        "Description": "Interactive data tables for R, based on the 'React Table'\n    JavaScript library. Provides an HTML widget that can be used in 'R Markdown'\n    or 'Quarto' documents, 'Shiny' applications, or viewed from an R console.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://glin.github.io/reactable/,\nhttps://github.com/glin/reactable",
-        "BugReports": "https://github.com/glin/reactable/issues",
-        "Depends": "R (>= 3.1)",
-        "Imports": "digest, htmltools (>= 0.5.2), htmlwidgets (>= 1.5.3),\njsonlite, reactR",
-        "Suggests": "covr, crosstalk, dplyr, fontawesome, knitr, leaflet, MASS,\nrmarkdown, shiny, sparkline, testthat, tippy, V8",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.1",
-        "Config/testthat/edition": "3",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-12-01 15:17:46 UTC; greg",
-        "Author": "Greg Lin [aut, cre],\n  Tanner Linsley [ctb, cph] (React Table library),\n  Emotion team and other contributors [ctb, cph] (Emotion library),\n  Kent Russell [ctb, cph] (reactR package),\n  Ramnath Vaidyanathan [ctb, cph] (htmlwidgets package),\n  Joe Cheng [ctb, cph] (htmlwidgets package),\n  JJ Allaire [ctb, cph] (htmlwidgets package),\n  Yihui Xie [ctb, cph] (htmlwidgets package),\n  Kenton Russell [ctb, cph] (htmlwidgets package),\n  Facebook, Inc. and its affiliates [ctb, cph] (React library),\n  FormatJS [ctb, cph] (FormatJS libraries),\n  Feross Aboukhadijeh, and other contributors [ctb, cph] (buffer library),\n  Roman Shtylman [ctb, cph] (process library),\n  James Halliday [ctb, cph] (stream-browserify library),\n  Posit Software, PBC [fnd, cph]",
-        "Maintainer": "Greg Lin <glin@glin.io>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-12-01 16:00:02 UTC",
-        "Built": "R 4.5.2; ; 2025-12-01 19:31:17 UTC; unix"
-      }
-    },
-    "reactablefmtr": {
-      "Source": "CRAN",
-      "Repository": null,
-      "description": {
-        "Package": "reactablefmtr",
-        "Type": "Package",
-        "Title": "Streamlined Table Styling and Formatting for Reactable",
-        "Version": "2.0.0",
-        "Authors@R": "c(\n    person(\"Kyle\", \"Cuilla\", role = c(\"aut\", \"cre\", \"cph\"), email = \"kyle.cuilla@gmail.com\"),\n    person(\"Greg\", \"Lin\", role = c(\"ctb\")),\n    person(\"June\", \"Choe\", role = c(\"ctb\")),\n    person(\"Kent\", \"Russell\", role = c(\"ctb\"))\n    )",
-        "Maintainer": "Kyle Cuilla <kyle.cuilla@gmail.com>",
-        "Description": "Provides various features to streamline and enhance the styling of interactive \n    reactable tables with easy-to-use and highly-customizable functions and themes. \n    Apply conditional formatting to cells with data bars, color scales, color tiles,\n    and icon sets. Utilize custom table themes inspired by popular websites such \n    and bootstrap themes. Apply sparkline line & bar charts \n    (note this feature requires the 'dataui' package which can be downloaded from\n    <https://github.com/timelyportfolio/dataui>).\n    Increase the portability and reproducibility of reactable tables by embedding images \n    from the web directly into cells. Save the final table output as a static image or \n    interactive file.",
-        "URL": "https://kcuilla.github.io/reactablefmtr/,\nhttps://github.com/kcuilla/reactablefmtr",
-        "BugReports": "https://github.com/kcuilla/reactablefmtr/issues",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "Depends": "R (>= 3.5.0), reactable (>= 0.2.0)",
-        "Imports": "dplyr, grDevices, htmltools, htmlwidgets (>= 1.5.3), magrittr,\npurrr, sass (>= 0.4.0), shiny, stats, stringr (>= 1.4.0), tippy\n(>= 0.1.0), tools, webshot",
-        "Suggests": "dataui (>= 0.0.1), MASS, scales",
-        "Additional_repositories": "https://kcuilla.github.io/drat/",
-        "RoxygenNote": "7.1.1",
-        "Language": "en-US",
-        "NeedsCompilation": "no",
-        "Packaged": "2022-03-15 23:10:26 UTC; Kyle",
-        "Author": "Kyle Cuilla [aut, cre, cph],\n  Greg Lin [ctb],\n  June Choe [ctb],\n  Kent Russell [ctb]",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-03-16 07:50:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-02 06:40:26 UTC; unix"
-      }
-    },
     "readODS": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -3346,31 +3225,6 @@
         "Archs": "sourcetools.so.dSYM"
       }
     },
-    "sparkline": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "sparkline",
-        "Type": "Package",
-        "Title": "'jQuery' Sparkline 'htmlwidget'",
-        "Version": "2.0",
-        "Date": "2016-11-10",
-        "Authors@R": "c(\n    person(\"Ramnath\", \"Vaidyanathan\", email = \"ramnath.vaidya@gmail.com\", role = c(\"aut\", \"cre\")),\n    person(\"Kent\", \"Russell\", email = \"kent.russell@timelyportfolio.com\", role = c(\"aut\", \"ctb\")),\n    person(\"Gareth\", \"Watts\", role = c(\"aut\", \"cph\"), comment = \"jquery.sparkline library in htmlwidgets/lib, https://github.com/gwatts/jquery.sparkline\"),\n    person(family = \"jQuery Foundation\", role = \"cph\", comment = \"jQuery library\"),\n    person(family = \"jQuery contributors\", role = c(\"ctb\", \"cph\"),\n      comment = \"jQuery library; authors listed in inst/htmlwidgets/lib/jquery/jquery-AUTHORS.txt\"\n    )\n  )",
-        "Maintainer": "Ramnath Vaidyanathan <ramnath.vaidya@gmail.com>",
-        "Description": "Include interactive sparkline charts\n    <http://omnipotent.net/jquery.sparkline> in \n    all R contexts with the convenience of 'htmlwidgets'.  ",
-        "Imports": "htmltools, htmlwidgets (>= 0.8)",
-        "Suggests": "formattable, knitr, rmarkdown, shiny",
-        "License": "MIT + file LICENSE",
-        "RoxygenNote": "5.0.1",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "no",
-        "Packaged": "2016-11-11 03:18:46 UTC; Kent",
-        "Author": "Ramnath Vaidyanathan [aut, cre],\n  Kent Russell [aut, ctb],\n  Gareth Watts [aut, cph] (jquery.sparkline library in htmlwidgets/lib,\n    https://github.com/gwatts/jquery.sparkline),\n  jQuery Foundation [cph] (jQuery library),\n  jQuery contributors [ctb, cph] (jQuery library; authors listed in\n    inst/htmlwidgets/lib/jquery/jquery-AUTHORS.txt)",
-        "Repository": "CRAN",
-        "Date/Publication": "2016-11-12 01:06:40",
-        "Built": "R 4.5.0; ; 2025-04-02 03:42:42 UTC; unix"
-      }
-    },
     "stringi": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -3708,32 +3562,6 @@
         "Built": "R 4.5.2; ; 2026-06-16 05:51:33 UTC; unix"
       }
     },
-    "tippy": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "tippy",
-        "Title": "Add Tooltips to 'R markdown' Documents or 'Shiny' Apps",
-        "Version": "0.1.0",
-        "Authors@R": "person(\"John\", \"Coene\", email = \"jcoenep@gmail.com\", role = c(\"aut\", \"cre\"))",
-        "Description": "'Htmlwidget' of 'Tippyjs' to add tooltips to 'Shiny' apps and 'R markdown' documents.",
-        "Depends": "R (>= 3.4.0)",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "Imports": "htmlwidgets, htmltools, shiny, jsonlite",
-        "RoxygenNote": "7.1.1",
-        "URL": "https://tippy.john-coene.com/",
-        "BugReports": "https://github.com/JohnCoene/tippy/issues",
-        "NeedsCompilation": "no",
-        "Packaged": "2021-01-11 20:42:47 UTC; jp",
-        "Author": "John Coene [aut, cre]",
-        "Maintainer": "John Coene <jcoenep@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2021-01-11 21:10:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-02 03:26:10 UTC; unix"
-      }
-    },
     "tzdb": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -3968,34 +3796,6 @@
         "Date/Publication": "2026-03-31 05:10:02 UTC",
         "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-03-31 08:24:20 UTC; unix",
         "Archs": "vroom.so.dSYM"
-      }
-    },
-    "webshot": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "webshot",
-        "Title": "Take Screenshots of Web Pages",
-        "Version": "0.5.5",
-        "Authors@R": "c(\n    person(\"Winston\", \"Chang\", email = \"winston@rstudio.com\", role = c(\"aut\", \"cre\")),\n    person(\"Yihui\", \"Xie\", role = \"ctb\"),\n    person(\"Francois\", \"Guillem\", role = \"ctb\"),\n    person(\"Barret\", \"Schloerke\", role = \"ctb\"),\n    person(\"Nicolas\", \"Perriault\", role = \"ctb\", comment = \"The CasperJS library\")\n    )",
-        "Description": "Takes screenshots of web pages, including Shiny applications and R\n    Markdown documents.",
-        "Depends": "R (>= 3.0)",
-        "Imports": "magrittr, jsonlite, callr",
-        "Suggests": "httpuv, knitr, rmarkdown, shiny, testthat (>= 3.0.0)",
-        "License": "GPL-2",
-        "SystemRequirements": "PhantomJS for taking screenshots, ImageMagick or\nGraphicsMagick and OptiPNG for manipulating images.",
-        "RoxygenNote": "7.2.3",
-        "Encoding": "UTF-8",
-        "URL": "https://wch.github.io/webshot/, https://github.com/wch/webshot/",
-        "BugReports": "https://github.com/wch/webshot/issues",
-        "Config/testthat/edition": "3",
-        "NeedsCompilation": "no",
-        "Packaged": "2023-06-26 22:07:00 UTC; winston",
-        "Author": "Winston Chang [aut, cre],\n  Yihui Xie [ctb],\n  Francois Guillem [ctb],\n  Barret Schloerke [ctb],\n  Nicolas Perriault [ctb] (The CasperJS library)",
-        "Maintainer": "Winston Chang <winston@rstudio.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2023-06-26 23:30:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-01 12:16:18 UTC; unix"
       }
     },
     "withr": {
@@ -4267,7 +4067,7 @@
       "checksum": "362e741b3a9fea161ecc0911b023a99b"
     },
     "components/finance_sparklines_table.R": {
-      "checksum": "fd9e019f8e90e6f700f574cd29e6d0dc"
+      "checksum": "5b399fc002100e0abe08f1d7225fe5e4"
     },
     "components/flip_info.R": {
       "checksum": "4bf1523ae7630355516d7bcfe12466ec"
@@ -4297,7 +4097,7 @@
       "checksum": "9a3dd71420576c6f7f08d7ec56e0d65f"
     },
     "components/model_registry_list.R": {
-      "checksum": "1fcc3bd892f88167aeba25183004f6c6"
+      "checksum": "ce5c6aa6583fc190427d036af3410f63"
     },
     "components/network_risk_lineage.R": {
       "checksum": "758c85eeb55b4b289860da3523617205"
@@ -4318,7 +4118,7 @@
       "checksum": "d768538c4097e11ab29c655ee4925f75"
     },
     "components/risk_equations_list.R": {
-      "checksum": "e1db5d3445d3fa1640ffde91002e3057"
+      "checksum": "6e8f11933304b39b1c2c278e0eb15237"
     },
     "components/sandbox/acc.png": {
       "checksum": "b3097cba196963cc0f5fabc37470cc04"
@@ -4369,7 +4169,7 @@
       "checksum": "315e3c5230359bc360eba7b03796dc34"
     },
     "components/sandbox/risk_equations_list.R": {
-      "checksum": "1e53d21ce55a9c32136407c60612cbb8"
+      "checksum": "7346df897a2877a027150e825fd3f716"
     },
     "components/sandbox/scenarios_list_component.R": {
       "checksum": "edabf6e77570e83b879371ce47f81b27"
@@ -4597,7 +4397,7 @@
       "checksum": "30270a3f452e2089377644c00007722e"
     },
     "preprocess.R": {
-      "checksum": "ea470bff421af4621d7c5f0822e5c42e"
+      "checksum": "9d7b0f5a33eb642fa6edd9516dd0874c"
     },
     "preprocessed_data/dp.fst": {
       "checksum": "6e3a311520fb975cd3fc651aa8b7b443"

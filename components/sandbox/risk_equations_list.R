@@ -1,7 +1,7 @@
 library(DT)
 library(shiny)
 library(tidyverse)
-library(sparkline)
+# library(sparkline)
 library(bslib)
 
 dot <- function(color='#bbb'){
