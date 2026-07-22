@@ -1483,68 +1483,6 @@
         "Built": "R 4.5.0; ; 2025-05-10 00:42:34 UTC; unix"
       }
     },
-    "geojsonsf": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "geojsonsf",
-        "Type": "Package",
-        "Title": "GeoJSON to Simple Feature Converter",
-        "Version": "2.0.5",
-        "Date": "2025-11-25",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\")),\n    person(\"Andy\", \"Teucher\", ,\"andy.teucher@gmail.com\", role = \"ctb\")\n    )",
-        "Description": "Converts Between GeoJSON and simple feature objects. ",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/SymbolixAU/geojsonsf",
-        "BugReports": "https://github.com/SymbolixAU/geojsonsf/issues",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "Depends": "R (>= 4.0.0)",
-        "Imports": "Rcpp (>= 1.1.0)",
-        "LinkingTo": "geometries (>= 0.2.5), jsonify (>= 1.2.3), rapidjsonr (>=\n1.2.1), Rcpp, sfheaders (>= 0.4.5)",
-        "RoxygenNote": "7.3.3",
-        "Suggests": "covr, jsonify, knitr, rmarkdown, tinytest",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-11-26 08:50:31 UTC; david",
-        "Author": "David Cooley [aut, cre],\n  Andy Teucher [ctb]",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-11-26 10:00:02 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2025-11-26 10:08:13 UTC; unix",
-        "Archs": "geojsonsf.so.dSYM"
-      }
-    },
-    "geometries": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "geometries",
-        "Type": "Package",
-        "Title": "Convert Between R Objects and Geometric Structures",
-        "Date": "2025-11-23",
-        "Version": "0.2.5",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"david.cooley.au@gmail.com\", role = c(\"aut\", \"cre\"))\n    )",
-        "Description": "Geometry shapes in 'R' are typically represented by matrices (points, lines), with more complex \n  shapes being lists of matrices (polygons). 'Geometries' will convert various 'R' objects into these shapes. \n  Conversion functions are available at both the 'R' level, and through 'Rcpp'.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://dcooley.github.io/geometries/",
-        "BugReports": "https://github.com/dcooley/geometries/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.3",
-        "LinkingTo": "Rcpp",
-        "Imports": "Rcpp (>= 1.1.0)",
-        "Suggests": "covr, knitr, rmarkdown, tinytest",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-11-23 16:09:52 UTC; david",
-        "Author": "David Cooley [aut, cre]",
-        "Maintainer": "David Cooley <david.cooley.au@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-11-23 16:30:02 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2025-11-23 19:54:06 UTC; unix",
-        "Archs": "geometries.so.dSYM"
-      }
-    },
     "ggplot2": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -2032,36 +1970,6 @@
         "Built": "R 4.5.0; ; 2025-04-01 11:50:17 UTC; unix"
       }
     },
-    "jsonify": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "jsonify",
-        "Type": "Package",
-        "Title": "Convert Between 'R' Objects and Javascript Object Notation\n(JSON)",
-        "Version": "1.2.3",
-        "Date": "2025-11-24",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\")),\n    person(\"Chris\", \"Muir\", role = \"ctb\"),\n    person(\"Brendan\", \"Knapp\", role = \"ctb\", comment = c(ORCID = \"0000-0003-3284-4972\"))\n    )",
-        "Description": "Conversions between 'R' objects and Javascript Object Notation (JSON) using \n    the 'rapidjsonr' library <https://CRAN.R-project.org/package=rapidjsonr>. ",
-        "License": "MIT + file LICENSE",
-        "Depends": "R (>= 4.0.0)",
-        "Imports": "Rcpp (>= 1.1.0)",
-        "LinkingTo": "rapidjsonr (>= 1.2.1), Rcpp",
-        "RoxygenNote": "7.3.2",
-        "Suggests": "covr, testthat, knitr, rmarkdown",
-        "Encoding": "UTF-8",
-        "URL": "https://symbolixau.github.io/jsonify/,\nhttps://github.com/SymbolixAU/jsonify",
-        "BugReports": "https://github.com/SymbolixAU/jsonify/issues",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-11-24 13:03:46 UTC; david",
-        "Author": "David Cooley [aut, cre],\n  Chris Muir [ctb],\n  Brendan Knapp [ctb] (ORCID: <https://orcid.org/0000-0003-3284-4972>)",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-11-25 19:22:12 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2025-11-25 19:55:00 UTC; unix",
-        "Archs": "jsonify.so.dSYM"
-      }
-    },
     "jsonlite": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -2384,35 +2292,6 @@
         "Date/Publication": "2026-04-04 08:00:02 UTC",
         "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-04-04 10:13:02 UTC; unix",
         "Archs": "magrittr.so.dSYM"
-      }
-    },
-    "mapgl": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "mapgl",
-        "Title": "Interactive Maps with 'Mapbox GL JS' and 'MapLibre GL JS'",
-        "Version": "0.5.0",
-        "Date": "2026-06-19",
-        "Authors@R": "c(\n    person(given = \"Kyle\", family = \"Walker\", email = \"kyle@walker-data.com\", role = c(\"aut\", \"cre\")),\n    person(given = \"Egor\", family = \"Kotov\", email = \"kotov.egor@gmail.com\", role = \"ctb\"))",
-        "Description": "Provides an interface to the 'Mapbox GL JS' (<https://docs.mapbox.com/mapbox-gl-js/guides>)\n    and the 'MapLibre GL JS' (<https://maplibre.org/maplibre-gl-js/docs/>) interactive mapping libraries to help users\n    create custom interactive maps in R.  Users can create interactive globe visualizations; layer 'sf' objects to create\n    filled maps, circle maps, 'heatmaps', and three-dimensional graphics; and customize map styles and views.  The package\n    also includes utilities to use 'Mapbox' and 'MapLibre' maps in 'Shiny' web applications.",
-        "URL": "https://walker-data.com/mapgl/",
-        "BugReports": "https://github.com/walkerke/mapgl/issues",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "LazyData": "true",
-        "RoxygenNote": "7.3.3",
-        "Depends": "R (>= 4.1.0)",
-        "Imports": "htmlwidgets, geojsonsf, sf, rlang, htmltools, grDevices,\nbase64enc, terra, classInt, shiny, viridisLite, png, jsonlite,\nhttpuv",
-        "Suggests": "chromote, knitr, mapboxapi, testthat (>= 3.0.0), usethis,\nleaflet",
-        "Config/testthat/edition": "3",
-        "NeedsCompilation": "no",
-        "Packaged": "2026-06-19 18:11:52 UTC; kylewalker",
-        "Author": "Kyle Walker [aut, cre],\n  Egor Kotov [ctb]",
-        "Maintainer": "Kyle Walker <kyle@walker-data.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2026-06-20 05:10:34 UTC",
-        "Built": "R 4.5.2; ; 2026-06-20 10:24:40 UTC; unix"
       }
     },
     "memoise": {
@@ -2899,30 +2778,6 @@
         "Date/Publication": "2026-03-23 08:50:08 UTC",
         "Built": "R 4.5.2; aarch64-apple-darwin20; 2026-03-23 09:05:47 UTC; unix",
         "Archs": "ragg.so.dSYM"
-      }
-    },
-    "rapidjsonr": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "rapidjsonr",
-        "Type": "Package",
-        "Title": "'Rapidjson' C++ Header Files",
-        "Version": "1.2.1",
-        "Date": "2025-11-23",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"dcooley@symbolix.com.au\", role = c(\"aut\", \"cre\")),\n    person(\"Milo\", \"Yip\", , role = \"ctb\", comment = \"Author of c++ rapidjson library, provided through THL A29 Limited, a Tencent company\"),\n    person(\"Alexander\", \"Chemeris\", role = \"ctb\", comment = \"Author of c++ msinttypes library\")\n    )",
-        "Description": "Provides JSON parsing capability through the 'Rapidjson' 'C++' header-only library. ",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.1",
-        "SystemRequirements": "GNU make",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-11-23 16:12:43 UTC; david",
-        "Author": "David Cooley [aut, cre],\n  Milo Yip [ctb] (Author of c++ rapidjson library, provided through THL\n    A29 Limited, a Tencent company),\n  Alexander Chemeris [ctb] (Author of c++ msinttypes library)",
-        "Maintainer": "David Cooley <dcooley@symbolix.com.au>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-11-24 08:50:07 UTC",
-        "Built": "R 4.5.2; ; 2025-11-24 08:55:55 UTC; unix"
       }
     },
     "rappdirs": {
@@ -3520,36 +3375,6 @@
         "Archs": "sf.so.dSYM"
       }
     },
-    "sfheaders": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "sfheaders",
-        "Type": "Package",
-        "Title": "Converts Between R Objects and Simple Feature Objects",
-        "Date": "2025-11-24",
-        "Version": "0.4.5",
-        "Authors@R": "c(\n    person(\"David\", \"Cooley\", ,\"david.cooley.au@gmail.com\", role = c(\"aut\", \"cre\")),\n    person(given = \"Michael\", family = \"Sumner\", role = \"ctb\")\n    )",
-        "Description": "Converts between R and Simple Feature 'sf' objects, without depending\n  on the Simple Feature library. Conversion functions are available at both the R level, \n  and through 'Rcpp'.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://dcooley.github.io/sfheaders/",
-        "BugReports": "https://github.com/dcooley/sfheaders/issues",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "Depends": "R (>= 3.0.2)",
-        "LinkingTo": "geometries (>= 0.2.5), Rcpp",
-        "Imports": "Rcpp (>= 1.1.0)",
-        "Suggests": "covr, knitr, testthat",
-        "NeedsCompilation": "yes",
-        "Packaged": "2025-11-24 13:15:04 UTC; david",
-        "Author": "David Cooley [aut, cre],\n  Michael Sumner [ctb]",
-        "Maintainer": "David Cooley <david.cooley.au@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-11-25 19:20:02 UTC",
-        "Built": "R 4.5.2; aarch64-apple-darwin20; 2025-11-25 19:23:52 UTC; unix",
-        "Archs": "sfheaders.so.dSYM"
-      }
-    },
     "shiny": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -3578,6 +3403,34 @@
         "Repository": "CRAN",
         "Date/Publication": "2026-06-21 14:10:08 UTC",
         "Built": "R 4.5.2; ; 2026-06-21 15:26:39 UTC; unix"
+      }
+    },
+    "shinyjqui": {
+      "Source": "CRAN",
+      "Repository": "https://cran.rstudio.com",
+      "description": {
+        "Package": "shinyjqui",
+        "Type": "Package",
+        "Title": "'jQuery UI' Interactions and Effects for Shiny",
+        "Version": "0.4.1",
+        "Authors@R": "person(\"Yang\", \"Tang\", email = \"tang_yang@outlook.com\",\n  role = c(\"aut\", \"cre\"))",
+        "Maintainer": "Yang Tang <tang_yang@outlook.com>",
+        "Description": "An extension to shiny that brings interactions and animation effects from\n    'jQuery UI' library.",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "Depends": "R (>= 3.2.0)",
+        "Imports": "shiny (>= 1.5.0), htmltools, htmlwidgets, jsonlite, rlang",
+        "Suggests": "ggplot2, highcharter, knitr, markdown, rmarkdown, plotly",
+        "URL": "https://github.com/yang-tang/shinyjqui,\nhttps://yang-tang.github.io/shinyjqui/",
+        "BugReports": "https://github.com/yang-tang/shinyjqui/issues",
+        "RoxygenNote": "7.1.2",
+        "VignetteBuilder": "knitr",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-02-03 06:36:22 UTC; tangy53",
+        "Author": "Yang Tang [aut, cre]",
+        "Repository": "CRAN",
+        "Date/Publication": "2022-02-03 07:00:02 UTC",
+        "Built": "R 4.5.0; ; 2025-04-02 00:58:19 UTC; unix"
       }
     },
     "sourcetools": {
@@ -4532,7 +4385,7 @@
       "checksum": "ad47ffc0fb39f810b37da23769d01914"
     },
     "app.R": {
-      "checksum": "78842d35c71fb544cd66de5ed768a80d"
+      "checksum": "4ee509a8307fd912e30dfc6bed4180df"
     },
     "chart_update_module/DESCRIPTION": {
       "checksum": "f459eb408412b3b685f1b47b0b3fd810"
@@ -4844,7 +4697,7 @@
       "checksum": "45f5c1c0060458c696367fb73fd03bca"
     },
     "demographics_charts.R": {
-      "checksum": "855e6a9fb07c190d8a0286479b56f3f3"
+      "checksum": "72308fd0d49d36c0bfeacb406a2019c3"
     },
     "disease_prevalence_trust.csv": {
       "checksum": "413851fcd2bb2c19b311471fcbbdcc39"

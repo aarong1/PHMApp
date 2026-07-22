@@ -3,8 +3,8 @@ library(jsonlite)
 library(sf)
 library(tidyverse)
 library(readxl)
-library(mapgl)
-library(leaflet)
+# library(mapgl)
+# library(leaflet)
 library(readODS)
 
 #https://walker-data.com/mapgl/articles/story-maps.html
