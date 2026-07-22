@@ -168,8 +168,10 @@ plot_aesthetics <- function(x){
 
 soa <- st_read('soa.geojson')
 
-soa_map_pop <- read_excel("data/MYE20-SOA-WARD.xlsx", 
-                          sheet = "Flat") 
+# soa_map_pop <- read_excel("data/MYE20-SOA-WARD.xlsx", 
+#                           sheet = "Flat") 
+
+soa_map_pop <- read.fst("preprocessed_data/soa_map_pop.fst") 
 
 gender_pop <- soa_map_pop |> 
   filter( 
