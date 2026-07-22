@@ -134,4 +134,4 @@ datatable(data = .,
 
   ) ,  style = "semanticui")
 )
-htmltools::browsable(fluidPage(risk_table_dt))
+htmltools::browsable(page_fluid(risk_table_dt))

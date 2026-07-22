@@ -66,6 +66,7 @@ source('./components/costs_table.R')
 source('./components/AF_STROKE_intervention_apex.R')
 source('./components/selectizeJS_dropdown_w_icons.R')
 source('./components/carousel.R')
+source('./components/risk_equations_list.R')
 
 
 
