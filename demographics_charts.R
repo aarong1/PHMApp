@@ -199,6 +199,26 @@ x <- pop
 #       probs) )  
 # view(x)
 
+
+(
+  absolute_ethnicity_facet_plot_echart <- eth_absolute |> 
+    mutate(Count = as.numeric(Count)) |> 
+    filter(`Geography code` != 'N92000002', 
+           `Age Group` == 'All Ages') |> 
+    filter(!Ethnicity %in% c('All Ethnicities','White')) |> 
+    
+    mutate(region = ifelse(Geography == 'Belfast',
+                           'Belfast',
+                           'Rest of NI') ) |>
+    count(region,Ethnicity, wt = Count,name='Count') |> 
+    arrange(desc(Count)) |> 
+    group_by(Ethnicity) |> 
+    e_charts(region, emphasis = list(focus = 'series' )) |> 
+    e_bar(Count) |> 
+    e_tooltip()
+  
+)
+
 (
 absolute_ethnicity_facet_plot_apex <- eth_absolute |> 
     mutate(Count = as.numeric(Count)) |> 
@@ -273,8 +293,8 @@ soa <- st_simplify(soa,TRUE,100)
 
 object.size(soa)
 
-leaflet(soa) |>
-  addPolygons()
+# leaflet(soa) |>
+#   addPolygons()
 
 soa_map_pop <- read_excel("data/MYE20-SOA-WARD.xlsx", 
                           sheet = "Flat") 

@@ -27,7 +27,7 @@ library(echarts4r)
 library(glue)
 # library(leaflet)
 library(DT)
-# library(apexcharter)
+library(apexcharter)
 library(fontawesome)
 library(jsonlite)
 # library(data.table)
@@ -36,11 +36,14 @@ library(jsonlite)
 #states <- sf::read_sf("https://rstudio.github.io/leaflet/json/us-states.geojson")
 
 ###################### IMPORT but only need looading once per project
-# source('./prevalence_plots.R')
-# source('./population_plots.R')
-# source('./shiny_prep_graph.R')
-# source('./epi_prevalence_plots.R')
 
+source('./prevalence_plots.R')
+source('./population_plots.R')
+source('./shiny_prep_graph.R')
+source('./epi_prevalence_plots.R')
+source('./necessary_demographic_charts.R')
+source('./screening_pathway.R')
+source('./load_graphs_sppg.R')
 # addResourcePath('www',normalizePath('./components/sandbox'))
 
 # source('./components/sandbox/scenarios_list_component.R')
@@ -48,6 +51,21 @@ library(jsonlite)
 #source all custom components
 # paste0('./components/', dir(pattern='.R','./components') ) %>%
 #   map(.,.f=function(x){print(x);source(file=x)})
+
+source('./components/button_block_box_shadow.R')
+source('./components/startup_overlay_div.R')
+source('./components/contact_bar_black.R')
+source('./components/info_cards.R')
+source('./components/hatched_sub_title.R')
+source('./components/info_box_block_shadow_floating_title_box.R')
+source('./components/new_costs_component.R')
+source('./components/circular_value.R')
+source('./components/costs_table.R')
+source('./components/AF_STROKE_intervention_apex.R')
+source('./components/selectizeJS_dropdown_w_icons.R')
+source('./components/carousel.R')
+
+
 
 source('./www/html_script_tags_w_injection/d3_scenario_input_widget.R')
 
@@ -1831,7 +1849,7 @@ const myAtropos2 = Atropos({
                                                         tags$div(class = "",
                                                                  div(class='echarts_holder',
 
-                                                                     div(h4(class='bg-charcoal text-light rounded-3 m-2 p-2','Ethnicity'),absolute_ethnicity_facet_plot_apex),
+                                                                     div(h4(class='bg-charcoal text-light rounded-3 m-2 p-2','Ethnicity'),absolute_ethnicity_facet_plot_echart),
 
                                                                  )
                                                         )
