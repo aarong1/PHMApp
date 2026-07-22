@@ -15,6 +15,7 @@ library(bslib)
 library(igraph)
 library(visNetwork)
 library(fst)
+library(sf)
 # library(yaml)
 
 #fileName='statins.yaml'
