@@ -1,7 +1,8 @@
 library(DT)
 library(shiny)
 library(tidyverse)
-library(sparkline)
+# library(sparkline)
+
 x <- read.csv(textConnection("Name,Email,Age,Gender,Hypertension_Selected,Cholesterol_Selected,Diabetes_Selected,Affects_Hypertension,Affects_Cholesterol,Affects_Diabetes,Timestamp,Treatment_Comment,Model_Run_Name,Result
 Margaret Arellano,richard.stewart@hscni.net,40-49,Other,True,True,True,True,True,False,2024-09-21,Medication adjustments for hypertension,Cardio_Model_Run_1,4
 Charles Robinson,tyler.bright@hscni.net,60-69,Other,False,False,False,True,False,True,2024-09-22,Lifestyle interventions,Cardio_Model_Run_2,5
@@ -27,8 +28,10 @@ y <- x%>%
                        tags$span(class='badge rounded-pill text-bg-secondary d-inline p-2',Age))) %>% 
   mutate(display = paste("<div class='p-2 hv d-inline'>", display, "</div>"))  %>%
   #select(display) #%>% 
-  mutate(model_run = paste(h4('Model'), h2(class='d-inline',model_run))) %>% 
-  mutate(spk = sparkline::spk_chr(1:10,lineColor= 'green'))
+  mutate(model_run = paste(h4('Model'), h2(class='d-inline',model_run))) #%>% 
+  # mutate(spk = sparkline::spk_chr(1:10,lineColor= 'green'))
+
+
   #mutate(display = as.character(display))
   
   #pivot_longer(names_to = 'params', cols = contains('Affects')) %>% 
@@ -73,7 +76,7 @@ ui <- fluidPage(
     headerCallback = JS("function(thead, data, start, end, display){ $(thead).remove(); }")  # Remove headers
 
   ),
-  style = "semanticui") %>% spk_add_deps()
+  style = "semanticui") #%>% spk_add_deps()
 
 )
 

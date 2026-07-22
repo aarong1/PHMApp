@@ -4216,7 +4216,7 @@
       "checksum": "ad47ffc0fb39f810b37da23769d01914"
     },
     "app.R": {
-      "checksum": "26a9588fee8bb3a4bd67e0868968c2b5"
+      "checksum": "455db19fd17db58706a388fcbf09c673"
     },
     "chart_update_module/DESCRIPTION": {
       "checksum": "f459eb408412b3b685f1b47b0b3fd810"
@@ -4372,7 +4372,7 @@
       "checksum": "1e53d21ce55a9c32136407c60612cbb8"
     },
     "components/sandbox/scenarios_list_component.R": {
-      "checksum": "268dcc0fc08444c6753af1f4b71209f6"
+      "checksum": "edabf6e77570e83b879371ce47f81b27"
     },
     "components/sandbox/stroke.png": {
       "checksum": "b3021e09f10d91343147ddba9f00372d"
@@ -4549,13 +4549,13 @@
       "checksum": "d41d8cd98f00b204e9800998ecf8427e"
     },
     "load_graphs_sppg.R": {
-      "checksum": "3e2ab77e69fbe7be3421750be26f0294"
+      "checksum": "ff2d155c60fe6987ee39a7a92f70f2e3"
     },
     "mock_intervention_app.R": {
       "checksum": "70e0ed99e13940ce1b056f65b5f81f76"
     },
     "necessary_demographic_charts.R": {
-      "checksum": "787debbdf33557d9181fd5188998bc22"
+      "checksum": "c09ba7492279c4ecddb841e3ba1c4048"
     },
     "NPP18_ppp_age_sex (1).xlsx": {
       "checksum": "b5c0ad300fbc162e66448a14feb4297e"
@@ -4597,7 +4597,7 @@
       "checksum": "30270a3f452e2089377644c00007722e"
     },
     "preprocess.R": {
-      "checksum": "fb25a19eb7501446b7da39d6a030f340"
+      "checksum": "ea470bff421af4621d7c5f0822e5c42e"
     },
     "preprocessed_data/dp.fst": {
       "checksum": "6e3a311520fb975cd3fc651aa8b7b443"
@@ -4613,6 +4613,9 @@
     },
     "preprocessed_data/npp.fst": {
       "checksum": "8b27dad55133d65119f5a27fa0d5f124"
+    },
+    "preprocessed_data/soa_map_pop.fst": {
+      "checksum": "fd9d6b077c16adeacb847788f8fea2f4"
     },
     "preprocessed_data/soa_mdm.fst": {
       "checksum": "4d76da85468b4a1abad81165efbaa996"

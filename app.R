@@ -3219,7 +3219,7 @@ server <- function(input, output, session) {
   #   })
   
   output$model_registry <- DT::renderDT({
-    datatable(data=y[c('display','model_run','spk')],
+    datatable(data=y[c('display','model_run')],
               rownames = FALSE, 
               escape =FALSE,
               height='80vh',
@@ -3232,7 +3232,7 @@ server <- function(input, output, session) {
                 headerCallback = JS("function(thead, data, start, end, display){ $(thead).remove(); }")  # Remove headers
                 
               ),
-              style = "semanticui") %>% spk_add_deps()
+              style = "semanticui") #%>% spk_add_deps()
   })
   
   observeEvent(input$jumptab,ignoreInit = T,ignoreNULL = T,{
