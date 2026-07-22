@@ -69,31 +69,6 @@
         "Built": "R 4.5.0; ; 2025-09-03 22:19:58 UTC; unix"
       }
     },
-    "GWalkR": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "GWalkR",
-        "Title": "Interactive Exploratory Data Analysis Tool",
-        "Version": "0.2.1",
-        "Authors@R": "c(\n    person(\"Yue\", \"Yu\", , \"yue.yu@connect.ust.hk\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-9302-0793\")),\n    person(\"Kanaries Data Inc.\", role = c(\"cph\", \"fnd\")))",
-        "Maintainer": "Yue Yu <yue.yu@connect.ust.hk>",
-        "Description": "Simplify your R data analysis and data visualization workflow by turning your data frame into an interactive 'Tableau'-like interface, leveraging the 'graphic-walker' JavaScript library and the 'htmlwidgets' package.",
-        "License": "Apache License (>= 2)",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.3.2",
-        "URL": "https://github.com/Kanaries/GWalkR/",
-        "BugReports": "https://github.com/Kanaries/GWalkR/issues",
-        "Imports": "htmlwidgets, jsonlite, openssl, shiny, shinycssloaders, DBI",
-        "Suggests": "duckdb",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-06-10 09:29:26 UTC; bruceyu",
-        "Author": "Yue Yu [aut, cre] (ORCID: <https://orcid.org/0000-0002-9302-0793>),\n  Kanaries Data Inc. [cph, fnd]",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-06-10 09:50:02 UTC",
-        "Built": "R 4.5.0; ; 2025-06-10 10:35:51 UTC; unix"
-      }
-    },
     "KernSmooth": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -523,33 +498,6 @@
         "Built": "R 4.5.2; ; 2026-05-14 09:48:38 UTC; unix"
       }
     },
-    "bsicons": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "bsicons",
-        "Title": "Easily Work with 'Bootstrap' Icons",
-        "Version": "0.1.2",
-        "Authors@R": "c(\n    person(\"Carson\", \"Sievert\", , \"carson@posit.co\", role = c(\"cre\", \"aut\"),\n           comment = c(ORCID = \"0000-0002-4958-2844\")),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")),\n    person(\"Mark\", \"Otto\", role = \"cph\",\n           comment = \"Bootstrap icons maintainer\")\n  )",
-        "Description": "Easily use 'Bootstrap' icons inside 'Shiny' apps and 'R\n    Markdown' documents. More generally, icons can be inserted in any\n    'htmltools' document through inline 'SVG'.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/rstudio/bsicons",
-        "BugReports": "https://github.com/rstudio/bsicons/issues",
-        "Depends": "R (>= 2.10)",
-        "Imports": "cli, htmltools, rlang, utils",
-        "Suggests": "bslib, processx, testthat, webshot2, withr",
-        "Config/testthat/edition": "3",
-        "Encoding": "UTF-8",
-        "RoxygenNote": "7.2.3",
-        "NeedsCompilation": "no",
-        "Packaged": "2023-11-03 23:29:00 UTC; cpsievert",
-        "Author": "Carson Sievert [cre, aut] (<https://orcid.org/0000-0002-4958-2844>),\n  Posit Software, PBC [cph, fnd],\n  Mark Otto [cph] (Bootstrap icons maintainer)",
-        "Maintainer": "Carson Sievert <carson@posit.co>",
-        "Repository": "CRAN",
-        "Date/Publication": "2023-11-04 00:30:05 UTC",
-        "Built": "R 4.5.0; ; 2025-04-01 07:48:51 UTC; unix"
-      }
-    },
     "bslib": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -888,34 +836,6 @@
         "Repository": "CRAN",
         "Date/Publication": "2026-04-16 05:10:13 UTC",
         "Built": "R 4.5.2; ; 2026-04-20 23:20:14 UTC; unix"
-      }
-    },
-    "cowplot": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "cowplot",
-        "Title": "Streamlined Plot Theme and Plot Annotations for 'ggplot2'",
-        "Version": "1.2.0",
-        "Authors@R": "\n    person(\n      given = \"Claus O.\",\n      family = \"Wilke\",\n      role = c(\"aut\", \"cre\"),\n      email = \"wilke@austin.utexas.edu\",\n      comment = c(ORCID = \"0000-0002-7470-9261\")\n    )",
-        "Description": "\n    Provides various features that help with creating publication-quality figures\n    with 'ggplot2', such as a set of themes, functions to align plots and arrange\n    them into complex compound figures, and functions that make it easy to annotate\n    plots and or mix plots with images. The package was originally written for\n    internal use in the Wilke lab, hence the name (Claus O. Wilke's plot package).\n    It has also been used extensively in the book Fundamentals of Data\n    Visualization.",
-        "URL": "https://wilkelab.org/cowplot/",
-        "BugReports": "https://github.com/wilkelab/cowplot/issues",
-        "Depends": "R (>= 3.5.0)",
-        "Imports": "ggplot2 (>= 3.5.2), grid, gtable, grDevices, methods, rlang,\nscales",
-        "License": "GPL-2",
-        "Suggests": "Cairo, covr, dplyr, forcats, gridGraphics (>= 0.4-0), knitr,\nlattice, magick, maps, PASWR, patchwork, rmarkdown, ragg,\ntestthat (>= 1.0.0), tidyr, vdiffr (>= 0.3.0), VennDiagram",
-        "VignetteBuilder": "knitr",
-        "Collate": "'add_sub.R' 'align_plots.R' 'as_grob.R' 'as_gtable.R'\n'axis_canvas.R' 'cowplot.R' 'draw.R' 'get_plot_component.R'\n'get_axes.R' 'get_titles.R' 'get_legend.R' 'get_panel.R'\n'gtable.R' 'key_glyph.R' 'plot_grid.R' 'save.R'\n'set_null_device.R' 'setup.R' 'stamp.R' 'themes.R'\n'utils_ggplot2.R'",
-        "RoxygenNote": "7.3.2",
-        "Encoding": "UTF-8",
-        "NeedsCompilation": "no",
-        "Packaged": "2025-07-06 18:45:15 UTC; clauswilke",
-        "Author": "Claus O. Wilke [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-7470-9261>)",
-        "Maintainer": "Claus O. Wilke <wilke@austin.utexas.edu>",
-        "Repository": "CRAN",
-        "Date/Publication": "2025-07-07 19:00:02 UTC",
-        "Built": "R 4.5.0; ; 2025-07-07 20:27:25 UTC; unix"
       }
     },
     "cpp11": {
@@ -3660,60 +3580,6 @@
         "Built": "R 4.5.2; ; 2026-06-21 15:26:39 UTC; unix"
       }
     },
-    "shinycssloaders": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "shinycssloaders",
-        "Title": "Add Loading Animations to a 'shiny' Output While It's\nRecalculating",
-        "Version": "1.1.0",
-        "Authors@R": "c(\n    person(\"Dean\",\"Attali\",email=\"daattali@gmail.com\",role=c(\"aut\",\"cre\"),\n        comment = c(\"Maintainer/developer of shinycssloaders since 2019\", ORCID=\"0000-0002-5645-3493\")),\n    person(\"Andras\",\"Sali\",email=\"andras.sali@alphacruncher.hu\",role=c(\"aut\"),comment=\"Original creator of shinycssloaders package\"),\n    person(\"Luke\",\"Hass\",role=c(\"ctb\",\"cph\"),comment=\"Author of included CSS loader code\")\n    )",
-        "Description": "When a 'Shiny' output (such as a plot, table, map, etc.) is recalculating, it remains \n    visible but gets greyed out. Using 'shinycssloaders', you can add a loading animation (\"spinner\")\n    to outputs instead. By wrapping a 'Shiny' output in 'withSpinner()', a spinner will automatically\n    appear while the output is recalculating. You can also manually show and hide the spinner, or add\n    a full-page spinner to cover the entire page.\n    See the demo online at <https://daattali.com/shiny/shinycssloaders-demo/>.",
-        "License": "MIT + file LICENSE",
-        "URL": "https://github.com/daattali/shinycssloaders,\nhttps://daattali.com/shiny/shinycssloaders-demo/",
-        "BugReports": "https://github.com/daattali/shinycssloaders/issues",
-        "Depends": "R (>= 3.1)",
-        "Imports": "digest, glue, grDevices, htmltools (>= 0.3.5), shiny",
-        "Suggests": "knitr, shinydisconnect, shinyjs",
-        "RoxygenNote": "7.2.3",
-        "Encoding": "UTF-8",
-        "NeedsCompilation": "no",
-        "Packaged": "2024-07-30 18:52:48 UTC; Dean",
-        "Author": "Dean Attali [aut, cre] (Maintainer/developer of shinycssloaders since\n    2019, <https://orcid.org/0000-0002-5645-3493>),\n  Andras Sali [aut] (Original creator of shinycssloaders package),\n  Luke Hass [ctb, cph] (Author of included CSS loader code)",
-        "Maintainer": "Dean Attali <daattali@gmail.com>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-07-30 22:30:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-01 20:36:16 UTC; unix"
-      }
-    },
-    "shinyjqui": {
-      "Source": "CRAN",
-      "Repository": "https://cran.rstudio.com",
-      "description": {
-        "Package": "shinyjqui",
-        "Type": "Package",
-        "Title": "'jQuery UI' Interactions and Effects for Shiny",
-        "Version": "0.4.1",
-        "Authors@R": "person(\"Yang\", \"Tang\", email = \"tang_yang@outlook.com\",\n  role = c(\"aut\", \"cre\"))",
-        "Maintainer": "Yang Tang <tang_yang@outlook.com>",
-        "Description": "An extension to shiny that brings interactions and animation effects from\n    'jQuery UI' library.",
-        "License": "MIT + file LICENSE",
-        "Encoding": "UTF-8",
-        "Depends": "R (>= 3.2.0)",
-        "Imports": "shiny (>= 1.5.0), htmltools, htmlwidgets, jsonlite, rlang",
-        "Suggests": "ggplot2, highcharter, knitr, markdown, rmarkdown, plotly",
-        "URL": "https://github.com/yang-tang/shinyjqui,\nhttps://yang-tang.github.io/shinyjqui/",
-        "BugReports": "https://github.com/yang-tang/shinyjqui/issues",
-        "RoxygenNote": "7.1.2",
-        "VignetteBuilder": "knitr",
-        "NeedsCompilation": "no",
-        "Packaged": "2022-02-03 06:36:22 UTC; tangy53",
-        "Author": "Yang Tang [aut, cre]",
-        "Repository": "CRAN",
-        "Date/Publication": "2022-02-03 07:00:02 UTC",
-        "Built": "R 4.5.0; ; 2025-04-02 00:58:19 UTC; unix"
-      }
-    },
     "sourcetools": {
       "Source": "CRAN",
       "Repository": "https://cran.rstudio.com",
@@ -4657,7 +4523,7 @@
   },
   "files": {
     ".RData": {
-      "checksum": "5a017dc070175f43e3806dc6cac59edf"
+      "checksum": "b7eea736d4f25381dd71a75f640a37f0"
     },
     ".Renviron": {
       "checksum": "39b61b0d9679db27cbb90d784957491b"
@@ -4666,7 +4532,7 @@
       "checksum": "ad47ffc0fb39f810b37da23769d01914"
     },
     "app.R": {
-      "checksum": "3edc907f8c68fd5eec8e89a469cb1bd8"
+      "checksum": "78842d35c71fb544cd66de5ed768a80d"
     },
     "chart_update_module/DESCRIPTION": {
       "checksum": "f459eb408412b3b685f1b47b0b3fd810"
