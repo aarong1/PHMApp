@@ -1,7 +1,9 @@
 load('sppg2.RData')
 
 tbl
-load('sppg.RData')
+# load('sppg.RData')
+load('sppg_new.RData')
+
 
 stroke_HSCT
 stroke_age20

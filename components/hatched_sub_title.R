@@ -150,19 +150,19 @@ sm_hatched_subtitle <- function(title = 'Analyst Ratings') {
       margin-left:20px;
       position: relative;
       display: inline-block;
-      line-height: 1.5;}
+      line-height:1;}
       </style>
       </head>
     <div>
-    <h5 class="sm_hatched_title">
+    <div class="fs-6 sm_hatched_title">
                   <span class="sm_hatched_label">', title , '</span>
-              </h5>
+              </div>
     </div>')
         )
   }
 
 browsable(
-  fluidPage(    
+  page_fluid(    
     hatched_subtitle('ighv utcydrtuv'),
     sm_hatched_subtitle('ighv utcydrtuv')
   )

@@ -58,7 +58,7 @@ af_stroke_output_agg <- read.csv(textConnection('year, 	intervention, 	normal, 	
 
 
  (
- af_stroke_output_agg_plot <- af_stroke_ouput_agg %>% 
+ af_stroke_output_agg_plot <- af_stroke_output_agg %>% 
    pivot_longer(cols = c(intervention,normal),
                 names_to = 'intervention',
                 values_to='incidence') %>% 

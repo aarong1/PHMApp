@@ -25,4 +25,4 @@ div_cards <-
     )
   }
 
-# browsable(bslib::page_fluid(div_cards(icon='arrow-up')))
+browsable(bslib::page_fluid(div_cards(icon='arrow-up')))

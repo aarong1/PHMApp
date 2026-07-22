@@ -2,6 +2,7 @@ library(DT)
 library(shiny)
 library(tidyverse)
 library(sparkline)
+library(bslib)
 
 dot <- function(color='#bbb'){
   
@@ -119,14 +120,13 @@ ui <- page_fluid(
     border:solid lightgrey;
      border-width:0px 0px 1px 0px;
              }'
-             
              ),
   
  # '  tr { display:block;
  #  padding:15px !important;
  #  margin:15px !important;
  #  transition: all 1s ease 0s}
- # 
+
  #  tr:hover {
  #   border-radius: 10px;
  #  box-shadow: 4px 4px 10px #bebebe, -4px -4px 10px #ffffff;
@@ -134,7 +134,6 @@ ui <- page_fluid(
  #  transition: all 0.5s ease 0.2s;}',
 
    risk_table_df %>% 
-  
 datatable(data = .,
   rownames = FALSE, 
   escape =FALSE,

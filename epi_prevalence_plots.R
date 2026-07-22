@@ -3,6 +3,8 @@
 library(readxl)
 library(apexcharter)
 library(echarts4r)
+library(readr)
+library(tidyverse)
 
 mdm_soa <- read_excel("data/NIMDM17_SOAresults.xls", 
                                  sheet = "MDM")
@@ -179,7 +181,7 @@ hy_plot <- plot_disease_prevalence(dp, 'Hypertension')
 dementia_plot <- plot_disease_prevalence(dp, 'Dementia')    
 osteoporosis_plot <- plot_disease_prevalence(dp, 'Osteoporosis')  
 arthritis_plot <- plot_disease_prevalence(dp, 'Rheumatoid Arthritis')  
-   
+
 
   e_arrange(title = 'hello',
             cols = 2,

@@ -122,64 +122,82 @@ eth_percent <- eth_percent |>
               values_from = 'value')
 
 eth_percent 
-x <- instantiate_base_pop(1900)
-x <- left_join(x,
-               select(eth_percent,-c('Geography code','age')),
-               by = join_by(LGD2014NAME == Geography,between(age,age_min,age_max))) |> 
-  select(-c(age_min,age_max)) |> 
-  rowwise() |> 
-  mutate(probs =   list(
-    c(
-      White,
-      `Irish Traveller` ,
-      Roma ,
-      Indian ,
-      Chinese ,
-      Filipino ,
-      Pakistani ,
-      Arab ,
-      `Other Asian` ,
-      `Black African` ,
-      `Black Other` ,
-      Mixed,      
-      `Other ethnicities`
-    )
-  )
-  ) |> 
-  mutate(
-    ethnicity = sample(size = 1,
-                       x =
-                         c("white",
-                           "irish traveller",
-                           "roma",     
-                           "indian", 
-                           "chinese",
-                           "filipino",
-                           "pakistani",
-                           "arab",
-                           "other asian",
-                           "black african",
-                           "black other",
-                           "mixed",          
-                           "other"),
-                       prob = probs )) |> 
-  select(
-    - c(
-      White,
-      `Irish Traveller` ,
-      Roma ,
-      Indian ,
-      Chinese ,
-      Filipino ,
-      Pakistani ,
-      Arab ,
-      `Other Asian` ,
-      `Black African` ,
-      `Black Other` ,
-      Mixed,      
-      `Other ethnicities`, 
-      probs) )  
-view(x)
+# x <- instantiate_base_pop(1900)
+
+library(fst)
+
+download.file(
+  "https://storage.googleapis.com/time_one_population_w_deaths/populations/time_one_population.fst",
+  destfile = "./time_one_population.fst",
+  mode = "wb"
+)
+
+past_populations <- read.fst('./time_one_population.fst')
+
+pop <- past_populations %>%
+  filter(year == min(year)) %>%
+  filter(run == min(run))
+
+x <- pop
+
+# x <- left_join(x,
+#                select(eth_percent,-c('Geography code','age')),
+#                by = join_by(LGD2014_name == Geography,
+#                             between(age,age_min,age_max))) |> 
+#   select(-c(age_min,age_max)) |> 
+#   rowwise() |> 
+#   mutate(probs =   list(
+#     c(
+#       White,
+#       `Irish Traveller` ,
+#       Roma ,
+#       Indian ,
+#       Chinese ,
+#       Filipino ,
+#       Pakistani ,
+#       Arab ,
+#       `Other Asian` ,
+#       `Black African` ,
+#       `Black Other` ,
+#       Mixed,      
+#       `Other ethnicities`
+#     )
+#   )
+#   ) |> 
+#   mutate(
+#     ethnicity = sample(size = 1,
+#                        x =
+#                          c("white",
+#                            "irish traveller",
+#                            "roma",     
+#                            "indian", 
+#                            "chinese",
+#                            "filipino",
+#                            "pakistani",
+#                            "arab",
+#                            "other asian",
+#                            "black african",
+#                            "black other",
+#                            "mixed",          
+#                            "other"),
+#                        prob = probs )) |> 
+#   select(
+#     - c(
+#       White,
+#       `Irish Traveller` ,
+#       Roma ,
+#       Indian ,
+#       Chinese ,
+#       Filipino ,
+#       Pakistani ,
+#       Arab ,
+#       `Other Asian` ,
+#       `Black African` ,
+#       `Black Other` ,
+#       Mixed,      
+#       `Other ethnicities`, 
+#       probs) )  
+# view(x)
 
 (
 absolute_ethnicity_facet_plot_apex <- eth_absolute |> 
@@ -406,7 +424,7 @@ soa_json <- jsonlite::read_json("soa.geojson")
     e_toolbox() |> 
     e_visual_map(serie = MYE,) |> 
     e_group('group') #|> 
-  #e_connect_group('group')
+  # e_connect_group('group')
 )
 #https://echarts.apache.org/examples/en/editor.html?c=map-usa
 
@@ -533,13 +551,14 @@ browsable(
 )
 
 
-e_arrange(soa_map,x1,cols=2)
+# e_arrange(soa_map,x1,cols=2)
 
 #https://echarts.apache.org/examples/en/editor.html?c=map-usa
 
 
 (
   x33 <- soa %>%
+    st_drop_geometry() %>% 
     count(LGD1992,wt=MYE) %>%   # Aggregate by rank (or any grouping variable)
     #summarise(MYE = sum(MYE, na.rm = TRUE)) %>%
     e_charts(LGD1992, elementId = 'group') %>%
@@ -552,7 +571,8 @@ e_arrange(soa_map,x1,cols=2)
 )
 
 
-(x3 <- soa %>%
+(x3 <- soa %>% 
+    # filter(row_number()<35) %>% #view()
     group_by(Urban) %>%   # Aggregate by rank (or any grouping variable)
     #summarise(MYE = sum(MYE, na.rm = TRUE)) %>%
     e_charts(LGD1992, elementId = 'group') %>%
@@ -569,7 +589,6 @@ e_arrange(soa_map,x1,cols=2)
 e_arrange(x3, x33, cols = 2)
 
 
-e_arrange(x1, x2, x6 ,cols = 2)
 
 
 (
@@ -588,7 +607,8 @@ e_arrange(x1, x2, x6 ,cols = 2)
     e_connect_group('group') |> 
     e_connect('group'))
 
-e_arrange(x4,x5,cols = 2)
+e_arrange(x1, x2, x6 ,cols = 2)
+# e_arrange(x4,x5,cols = 2)
 
 soa |> 
   e_charts(MYE) |> 

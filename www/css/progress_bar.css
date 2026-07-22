@@ -15,7 +15,7 @@
     max-width: 400px;
     height: 20px;
     /*background-color: #e0e0e0; */
-    background-color: rgb(122,236,244);
+    background-color: #fa5252; /* rgb(122,236,244); */
     border-radius: 10px;
     overflow: hidden;
 }

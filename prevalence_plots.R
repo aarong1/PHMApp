@@ -41,7 +41,7 @@ plot_aesthetics <- function(x){
       axisTick = list(show = FALSE),     
       axisLabel = list(show = TRUE)) %>% 
     
-  e_grid(left = "20%", right = "20%", bottom = "15%")
+  e_grid(left = "20%", right = "20%", bottom = "35%")
 }
 
 
@@ -330,7 +330,7 @@ e_scatter(serie = value, symbolSize = 3) %>%
     name = "Prevalence (%)",textStyle = list(fontSize = 8),
         axisLine = list(show = FALSE),
         axisTick = list(show = FALSE),     axisLabel = list(show = FALSE)) %>% 
-    e_grid(left = "20%", right = "20%", bottom = "15%")
+    e_grid(left = "20%", right = "20%", bottom = "25%")
   
 )
 

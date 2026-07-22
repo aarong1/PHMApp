@@ -28,7 +28,7 @@ tiny_circular_value(colour='#FDAA48'),
 tiny_circular_value(colour='#ff4741')
 
 
-
+  
   
 )
 )

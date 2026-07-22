@@ -20,15 +20,17 @@ colours= c('lightgreen','yellow','orange', '#ff4741')
 div(
   HTML('<head><style>
   #inner{
-  border:solid 20px lightgreen;
+  border:solid 20px lightgreen; /* lightgreen */
   border-radius:50%;
   transform: scale(1);
-  padding-top:20px;width:100%;height:100%;
+  padding-top:20px;
+  width:100%;
+  height:100%;
     transition: transform 1s ease-in-out;
 
   }
   #inner:hover {
-    transform: scale(1);
+    transform: scale(1.4);
           transition: transform 0.5s ease-in-out;
 
     
@@ -37,12 +39,12 @@ div(
     
   </style>
        </head>'),
-
-  div(id='outer',style ='margin:10px;width:100%;border:solid 20px #13b5cb;border-radius:50%;aspect-ratio: 1 / 1;',
+div(
+  div(id='outer',style ='margin:10px;width:100%;height:100%;border:solid 20px cyan;border-radius:50%;aspect-ratio: 1 / 1;', ##13b5cb
 
 div(id ='inner',
      div( id='content',
-     style ='padding-top:20px;width:100%;height:100%;;
+     style ='padding-top:20px;
 
 border-radius:50%;
 
@@ -61,34 +63,27 @@ font-weight:bold;
     gap:-1rem;',
 
     
-    div(style='text-align:center;',
-        p('ICER'),
-p(style = 'font-size:10px;','Incremental Cost Effectiveness Ratio')) ,
-
-
-    
-    
-    div(style='text-align:center;',
-        p(style = 'display:inline-block;font-size:50px;',
-          p(style = 'display:inline-block;','£'),
-          h1(id='myTargetElement', style = 'display:inline-block;width:95%;',value), 
-          p(style = 'display:inline-block;','/ QUALY'))),
-
-   
+#     div(style='text-align:center;',
+#         p('ICER'),
+# p(style = 'font-size:10px;','Incremental Cost Effectiveness Ratio')) ,
 
     
+    div(style='text-align:center;margin-top:-10px;',
+        p(style = 'display:inline-block;font-size:15px;',
+          div(id='myTargetElement', style = 'display:inline-block;width:95%;font-size:2rem',value), 
+          # p(style = ';',''),
+          p(style = 'display:inline-block;','£ / QUALY'),
+          br(),
+          p(class='badge bg-info','over 10 years')))),
 
-    
-
-div(style='text-align:center;',
-    p('over 10 years'))
-
-)
+# div(style='text-align:center;',
+# )
 ))
+)
 )
 }
 
-browsable(fluidPage(
+browsable(page_fluid(
 circular_value('10,212')
 ))
 

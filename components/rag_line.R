@@ -2,16 +2,15 @@ library(shiny)
 library(htmltools)
 
 
-
-browsable(HTML('
+rag_line <- function(){HTML('
 <head>
 
   <style>
     /* Styling for the block */
     .colour-block {
-    margin:30px;
+    margin-block:10px;
       display: flex;
-      width: 400px;
+      width:100%;
       height: 20px;
       position: relative;
             gap:2px;
@@ -69,4 +68,6 @@ browsable(HTML('
   </script>
 </body>
 ')
-)
+}
+
+browsable(rag_line())
